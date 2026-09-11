@@ -1,0 +1,11 @@
+SynoraStudio engineering playbook: licensing status
+
+Source: https://github.com/synorastudio/eng-playbook
+Commit: 5ba01ca31041526e7105bd3278ecd1c6b057acd8
+
+No LICENSE file or license declaration was found in the upstream repository at
+this commit. NOASSERTION records that absence; it is not a license grant.
+
+The 12 skill directories were imported unchanged into this personal dotfiles
+repository at the user's explicit request. This note records provenance and
+does not assert permission from SynoraStudio to redistribute these files.

@@ -1,0 +1,276 @@
+{
+  "version": 1,
+  "profile": "personal-macos",
+  "targets": [
+    ".agents/skills",
+    ".claude/skills"
+  ],
+  "skills": [
+    {
+      "name": "blast-radius",
+      "source": "https://github.com/cursor/plugins.git",
+      "commit": "e46364b8be46000b7df0f260550cd712afbb8d36",
+      "path": "pstack/skills/blast-radius",
+      "tree": "b7e78173d1cee739737fa2371017a211ebe3fc8c",
+      "license": "MIT",
+      "license_file": "skills/licenses/pstack.txt",
+      "files": {
+        "SKILL.md": "b060df3ca85803eabbce9fab53f5cc024ca8d784bdde5513c1c1a784947523f8"
+      }
+    },
+    {
+      "name": "bro",
+      "source": "https://github.com/cursor/plugins.git",
+      "commit": "99559f2f52047978602ef365589275831e76af07",
+      "path": "pstack/skills/bro",
+      "tree": "53c3b2c5dc11fe0ee4156468da27505df9239dc6",
+      "license": "MIT",
+      "license_file": "skills/licenses/pstack.txt",
+      "files": {
+        "SKILL.md": "aa329d0ceeeecb6822a7174ad76bb07a7826a3c52ceb6a588dec4138815084bb"
+      }
+    },
+    {
+      "name": "how",
+      "source": "https://github.com/cursor/plugins.git",
+      "commit": "63d938c2e4a165a0fec1bd0f61a8e325f0cb751e",
+      "path": "pstack/skills/how",
+      "tree": "3d341663ea4e4eaf516f17f3bc48f94cf17b75d4",
+      "license": "MIT",
+      "license_file": "skills/licenses/pstack.txt",
+      "files": {
+        "SKILL.md": "fe503e7a9b2a3a7ad2622a2de6124cb06c466922fb44bc61817b49b52042b885",
+        "references/critic-prompt.md": "aa77a15590814c814bd5cb074842029ab7b790c2e8379050525bdbc20739d1bb",
+        "references/critique-rubric.md": "5774ff2caf51796e54c4a61b63620a165de5801f23c8f47406e527abfbe9addc",
+        "references/explainer-prompt.md": "04336086e7c415394459ca2f461717d920e15339517dbf5a56ca042f8b4fead3",
+        "references/explorer-prompt.md": "fd1218b8cf1f467c644d4ce6fa5e54e6089ede65a28fbbae61f6ee7a2d462f85"
+      }
+    },
+    {
+      "name": "unslop",
+      "source": "https://github.com/cursor/plugins.git",
+      "commit": "99559f2f52047978602ef365589275831e76af07",
+      "path": "pstack/skills/unslop",
+      "tree": "6161508c5c7959b156ff0e4e10b510863b51f9cc",
+      "license": "MIT",
+      "license_file": "skills/licenses/pstack.txt",
+      "files": {
+        "SKILL.md": "181883e539caec8258ec9129e3ba5f133409144a2cbf2aa361158ab94cfc3441"
+      }
+    },
+    {
+      "name": "why",
+      "source": "https://github.com/cursor/plugins.git",
+      "commit": "63d938c2e4a165a0fec1bd0f61a8e325f0cb751e",
+      "path": "pstack/skills/why",
+      "tree": "401af6846377c1f6bb712337f28252f003e9cd32",
+      "license": "MIT",
+      "license_file": "skills/licenses/pstack.txt",
+      "files": {
+        "SKILL.md": "dc8f2d8a7dbef7d0467cca8e6d055a4dbde027db6e2cbbfb18aa9071d8f20b6c",
+        "references/epistemics.md": "ba99dcdc4fbce91a83b50fc0c9b2c5769febd95540b1722c6b87fe8f900bb60a",
+        "references/investigator-prompt.md": "e35d8eaea13f0a027dd35572d525e9f66e8f8918ca9e555237dc228f26278d5f",
+        "references/source-playbook.md": "3cfb0245d5b2019eeeaa7a0e023579d390f2cdcdff6942d2fe009b9efac0eb11",
+        "references/sources/code-archaeology.md": "8c14aa382f0de40829b2668d43e3f54814480bb93a486c9282ada4003f6b9dbd",
+        "references/sources/databricks.md": "269a22032f027ee30a33c1b5e30443d13dd6d127ff20d8d1e8a20715b06a69cc",
+        "references/sources/datadog.md": "db80803f1635a5015e3190f4753c4228083e6cebf222c84e24fc3c3919aa5574",
+        "references/sources/incident-postmortem.md": "486132457d3782eea64292ce7a2d3bbe3b24b372b20ca00de4329e820f74cd42",
+        "references/sources/linear.md": "7e1b72ba459089168efd701502f8c268d2481154aeeda1ddd84f840f7e974760",
+        "references/sources/notion.md": "2ce336dd3052967187a56ec33d308c7a69e7ef3b04ba7b17386a8b3914a0f000",
+        "references/sources/sentry.md": "0eef902cb0f835f7fa9bd85a8e19ba1505d05e59a0173dfe852d8d52d828266d",
+        "references/sources/slack.md": "60e4c8dbb941f563c86aec7267cde66443b1dc651422569c8d112bc9da7551f6",
+        "references/synthesizer-prompt.md": "fcdc69ede22f94da9e22f510bb0c4a75a63820f0b49b8d5fd54a196b4010bf2a"
+      }
+    },
+    {
+      "name": "codebase-design",
+      "source": "https://github.com/mattpocock/skills.git",
+      "commit": "321658273cb1d20b76026717d027d505790106d4",
+      "path": "skills/engineering/codebase-design",
+      "tree": "344e3efc88ee60663b2e989555c2efdb548fbd42",
+      "license": "MIT",
+      "license_file": "skills/licenses/mattpocock.txt",
+      "files": {
+        "DEEPENING.md": "f3dd099ce99289bd213914d8ee3e2429b78309c3957ca4583f7659551b1d53c1",
+        "DESIGN-IT-TWICE.md": "8e740bf98446dbd4dfdc132ac4346d9a7eedaf93de6a495889171cf7f99f16bd",
+        "SKILL.md": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+        "agents/openai.yaml": "edebc9e4fcfe102114012575eaa9600b9b5fd08c311664f389c36e7bc717740f"
+      }
+    },
+    {
+      "name": "writing-for-agents",
+      "source": "https://github.com/mattpocock/skills.git",
+      "commit": "321658273cb1d20b76026717d027d505790106d4",
+      "path": "skills/productivity/writing-for-agents",
+      "tree": "ad2925850efb8973a72d2e666f7a975f9a2d4a9b",
+      "license": "MIT",
+      "license_file": "skills/licenses/mattpocock.txt",
+      "files": {
+        "SKILL-MECHANICS.md": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+        "SKILL.md": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a",
+        "agents/openai.yaml": "eacb24b2a618cfb81dacb0416f4fdd75ddf3a8060f8ddb99aae1b1e301907e4b"
+      }
+    },
+    {
+      "name": "adopt-project",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/adopt-project",
+      "tree": "d439bc15efcdf9d30a5c3c6ef0e6b11f908770db",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "SKILL.md": "99d96820417249674874aaab67f28d313950bfed04674c703393126baaf9db5a",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      }
+    },
+    {
+      "name": "grill",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/grill",
+      "tree": "d315f83a4b63a61f22b40abaca531fa5185bae32",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "SKILL.md": "05d0fd0eddb07c6743ec56c9cccc505871ba329134c9dbbf3e190a9db7aaf47b",
+        "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
+      }
+    },
+    {
+      "name": "handoff",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/handoff",
+      "tree": "e86be5994333a8125fdf6500988dfeda452877c6",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "SKILL.md": "6fa286341b31dd2e2d7e0677e075693fc6f38028f6d77b5ba462ed9b31614f09",
+        "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
+      }
+    },
+    {
+      "name": "implement",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/implement",
+      "tree": "9632cd50e34f14ee982cb1e65c2886aeba056a9e",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "SKILL.md": "c5c44d820ee3ee5fbf43e85ae5c9eea9b16f761fd16ff00a07c002ea3050ee5b",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      }
+    },
+    {
+      "name": "init-agent-os",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/init-agent-os",
+      "tree": "866458d6f2d6dd847d9c5d96ed26c74b164665c8",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "AGENTS-TEMPLATE.md": "85f3609f1a7511aacfd125dff75bdd29af9d11718d35de46cb81e0dd70adb33a",
+        "SKILL.md": "5b1db0d0d8cb78dcdb0d89a84ccc9c00aa985f5908f15d2e93b2505ee3c54c5b",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      }
+    },
+    {
+      "name": "intake",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/intake",
+      "tree": "bdf86eca8529b0581722453d0caa38a68f1484c4",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "SKILL.md": "503fc74cf9b8f125017e8d32b624855324c5d5535133628c63b5d85a1fc1d14c",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      }
+    },
+    {
+      "name": "maintain-language",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/maintain-language",
+      "tree": "8d9a9843d869400b79e752c92c186542e851f3ef",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "LANGUAGE-FORMAT.md": "1625ab139543eafec2341c3a15b7a9c484c959cb2da28cd52bf19cc0798d5329",
+        "SKILL.md": "8e6b743ef5e34ca8479e5ccaa136c63995d8dfe67f2d5340e1e2f50ef97a9939",
+        "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
+      }
+    },
+    {
+      "name": "maintain-living-docs",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/maintain-living-docs",
+      "tree": "903b008bd14f61738122d6e4d490b8758b467f78",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "SKILL.md": "9b54a3592acf12f7fd3e90c09a444d2dcebfb52732273c2a86730d57bb066fbd",
+        "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
+      }
+    },
+    {
+      "name": "map-decisions",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/map-decisions",
+      "tree": "22df3f42e4a4a9a703f53e526f57251cbfaa820c",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "SKILL.md": "e291e398acc5ee58578b7a5d55993de77229256396282bd6687b22e48e421744",
+        "agents/openai.yaml": "b8daa849c7cb8861e66f88a94666a39f45122e083f2d9b749f1a456b0f6c645b"
+      }
+    },
+    {
+      "name": "prototype",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/prototype",
+      "tree": "239c006c89d5c723ee6b82ad39ddcdec0f5a7b61",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "LOGIC.md": "0d74652a4259a06f7328cac4c41a51962c78e1297b2527ab99c45d706c919a07",
+        "SKILL.md": "516f9b5bec88a60dbf2142c78be189aa4e0ff01b245b6d2e28dbddc2d3524cdc",
+        "UI.md": "484fe150f24c25d9e9ad7640664233d49934abfef3f2d3255805acea786b8263",
+        "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
+      }
+    },
+    {
+      "name": "write-adr",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/write-adr",
+      "tree": "63c48ebbefa1099918f077a43cd0461b50457a6f",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "ADR-FORMAT.md": "e4550de1e342119ef63f07d0266c222ad3a591dbfa49f1e6d267579bbb130243",
+        "SKILL.md": "19122dcce9def81b6e6e5045c68ca4edfff814ee138e77be6aa19d8d138a4d40",
+        "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
+      }
+    },
+    {
+      "name": "write-issues",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "path": "skills/write-issues",
+      "tree": "de3ba3d0b7be85baae060aed01359c963d6b0386",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "SKILL.md": "12174c97992c66ce5278e73a5e3d647f1ff5edfe438af2c01f59e65441fa725e",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      }
+    }
+  ]
+}
