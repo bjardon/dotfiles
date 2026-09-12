@@ -30,9 +30,10 @@ Install Git and Node.js 22 or newer first. Clone this repository into a permanen
 ```sh
 git clone git@github.com:bjardon/dotfiles.git ~/Documents/Experiments/dotfiles
 cd ~/Documents/Experiments/dotfiles
-node scripts/skills.mjs check
-node scripts/skills.mjs install
-node scripts/skills.mjs install --apply
+npm ci
+npm run check
+npm run skills -- install
+npm run skills -- install --apply
 ```
 
 `install` previews every link without writing files. `--apply` links the vendored
@@ -75,13 +76,16 @@ links. Remove those links explicitly before deleting its vendored directory.
 Credentials, company-specific settings, plugin caches, and agent session history
 stay outside this repository.
 
-The installer uses Node built-ins only. No package installation or build step is
-required. `npm run skills -- install` is also available as a shortcut.
+The installer and tests are TypeScript, run through `tsx`. Run `npm ci` after
+cloning to install the locked development tools. No build step is required.
+`tsx` executes TypeScript without type checking, so `npm run check` and `npm test`
+both run strict `tsc --noEmit` checks first. `npm run typecheck` checks types alone.
+JSON manifests are validated at runtime before any filesystem changes.
 
 ## Validation
 
 ```sh
-node scripts/skills.mjs check
+npm run check
 npm test
 ```
 

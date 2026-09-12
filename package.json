@@ -2,10 +2,18 @@
   "name": "@bjardon/dotfiles",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
-    "check": "node scripts/skills.mjs check",
-    "skills": "node scripts/skills.mjs",
-    "test": "node --test"
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && tsx scripts/skills.ts check",
+    "skills": "tsx scripts/skills.ts",
+    "test": "npm run typecheck && tsx --test tests/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.2",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2"
   }
 }
