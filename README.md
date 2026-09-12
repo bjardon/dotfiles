@@ -1,8 +1,17 @@
 # Dotfiles
 
-Personal macOS configuration, paired with [bjardon/fleet](https://github.com/bjardon/fleet).
-Fleet provisions Linux machines and their account profiles. This repository owns
-my Mac setup, starting with the agent skills I want on my next machine.
+The version-controlled home for my Mac's configuration files. When I set up a new
+machine, this is what I clone to get it back the way I like it.
+
+It pairs with [bjardon/fleet](https://github.com/bjardon/fleet), which provisions
+Linux machines and their account profiles. This repository owns my Mac setup.
+
+## What's tracked
+
+Agent skills are the first thing managed here, and more config will follow. Each
+area keeps its own restore steps.
+
+- [Skills](#skills). Vendored agent skills, symlinked into place by an installer.
 
 ## Skills
 
@@ -23,7 +32,7 @@ here. [CLI-managed skills](skills/cli-managed.md) records Composio and Railway.
 `gh-cli`, `linear-cli`, `find-skills`, and the missing `discuss` are not selected.
 Existing unselected skills are left alone.
 
-## Restore on a Mac
+## Restoring skills on a Mac
 
 Install Git and Node.js 22 or newer first. Clone this repository into a permanent location:
 
