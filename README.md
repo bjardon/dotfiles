@@ -25,14 +25,14 @@ Existing unselected skills are left alone.
 
 ## Restore on a Mac
 
-Install Git and Python 3 first. Clone this repository into a permanent location:
+Install Git and Node.js 22 or newer first. Clone this repository into a permanent location:
 
 ```sh
 git clone git@github.com:bjardon/dotfiles.git ~/Documents/Experiments/dotfiles
 cd ~/Documents/Experiments/dotfiles
-python3 scripts/skills.py check
-python3 scripts/skills.py install
-python3 scripts/skills.py install --apply
+node scripts/skills.mjs check
+node scripts/skills.mjs install
+node scripts/skills.mjs install --apply
 ```
 
 `install` previews every link without writing files. `--apply` links the vendored
@@ -75,11 +75,14 @@ links. Remove those links explicitly before deleting its vendored directory.
 Credentials, company-specific settings, plugin caches, and agent session history
 stay outside this repository.
 
+The installer uses Node built-ins only. No package installation or build step is
+required. `npm run skills -- install` is also available as a shortcut.
+
 ## Validation
 
 ```sh
-python3 scripts/skills.py check
-python3 -m unittest discover -s tests -v
+node scripts/skills.mjs check
+npm test
 ```
 
 Tests use temporary homes for preview, installation, backups, repeat runs, and
