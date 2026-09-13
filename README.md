@@ -8,10 +8,11 @@ Linux machines and their account profiles. This repository owns my Mac setup.
 
 ## What's tracked
 
-Agent skills are the first thing managed here, and more config will follow. Each
-area keeps its own restore steps.
+Each configuration area keeps its own files and restore steps.
 
 - [Skills](#skills). Vendored agent skills, symlinked into place by an installer.
+- [Global agent instructions](agents/README.md). Personal Codex `AGENTS.md` and
+  Claude Code `CLAUDE.md` files, with a preview and backup installer.
 
 ## Skills
 
@@ -100,3 +101,16 @@ npm test
 
 Tests use temporary homes for preview, installation, backups, repeat runs, and
 failure cases. They do not alter the current user's skill installation.
+
+## Restoring global agent instructions
+
+After `npm ci`, follow the [agent instructions guide](agents/README.md):
+
+```sh
+npm run agents -- install
+npm run agents -- install --apply
+```
+
+This links the tracked files into `~/.codex/AGENTS.md` and `~/.claude/CLAUDE.md`.
+Existing items are backed up before replacement. Start new agent sessions after
+applying. Restore skills too so Claude can use `unslop`.

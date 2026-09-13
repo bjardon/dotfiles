@@ -7,9 +7,10 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && tsx scripts/skills.ts check",
+    "check": "npm run typecheck && tsx scripts/skills.ts check && tsx scripts/agents.ts check",
     "skills": "tsx scripts/skills.ts",
-    "test": "npm run typecheck && tsx --test tests/*.test.ts"
+    "test": "npm run typecheck && tsx --test tests/*.test.ts",
+    "agents": "tsx scripts/agents.ts"
   },
   "devDependencies": {
     "@types/node": "22.20.2",

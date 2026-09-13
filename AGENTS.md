@@ -4,8 +4,8 @@ This repo tracks my Mac's configuration files, so a fresh machine can be restore
 from a clone. See [README.md](README.md) for the full picture.
 
 Each area is self-contained: it vendors its own files, documents its own restore
-steps, and owns any tooling it needs. Skills are the only area so far; treat what
-follows as the pattern new areas should match.
+steps, and owns any tooling it needs. Skills and global agent instructions follow
+this pattern.
 
 ## Working here
 
