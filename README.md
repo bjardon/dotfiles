@@ -111,6 +111,8 @@ npm run agents -- install
 npm run agents -- install --apply
 ```
 
-This links the tracked files into `~/.codex/AGENTS.md` and `~/.claude/CLAUDE.md`.
+This links shared instructions into `~/.agents/AGENTS.md`, with an additional
+`~/.codex/AGENTS.md` link for Codex. `~/.claude/CLAUDE.md` imports the shared file
+and adds Claude-specific instructions.
 Existing items are backed up before replacement. Start new agent sessions after
 applying. Restore skills too so Claude can use `unslop`.

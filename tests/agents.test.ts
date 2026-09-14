@@ -18,13 +18,17 @@ function fixture(t: TestContext) {
 
 test('agent preview writes nothing; restore links both files and is repeatable', t => {
   const { home, root, run } = fixture(t);
-  assert.equal(run({ apply: false }).length, 2);
+  assert.equal(run({ apply: false }).length, 3);
   assert.deepEqual(fs.readdirSync(home), []);
   const actions = run();
   for (const action of actions) {
     assert.ok(fs.lstatSync(action.dest).isSymbolicLink());
     assert.equal(fs.readFileSync(action.dest, 'utf8'), fs.readFileSync(action.source, 'utf8'));
   }
+  assert.equal(fs.realpathSync(path.join(home, '.agents/AGENTS.md')),
+    fs.realpathSync(path.join(home, '.codex/AGENTS.md')));
+  assert.match(fs.readFileSync(path.join(home, '.claude/CLAUDE.md'), 'utf8'),
+    /^@~\/\.agents\/AGENTS\.md\n/);
   fs.appendFileSync(path.join(root, 'agents/CLAUDE.md'), '\nA new preference.\n');
   assert.match(fs.readFileSync(path.join(home, '.claude/CLAUDE.md'), 'utf8'), /A new preference/);
   assert.ok(run().every(action => action.status === 'ok'));
@@ -61,7 +65,7 @@ test('agent link failure restores the original file', t => {
   assert.equal(fs.readFileSync(dest, 'utf8'), 'original');
 });
 
-for (const directory of ['.claude', '.local']) test(`agent restore rejects linked ${directory} before writing`, t => {
+for (const directory of ['.agents', '.claude', '.local']) test(`agent restore rejects linked ${directory} before writing`, t => {
   const { temp, home, run } = fixture(t);
   const outside = path.join(temp, 'outside');
   fs.mkdirSync(outside);

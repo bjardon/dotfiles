@@ -6,7 +6,11 @@ import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const targets = [['AGENTS.md', '.codex/AGENTS.md'], ['CLAUDE.md', '.claude/CLAUDE.md']] as const;
+const targets = [
+  ['AGENTS.md', '.codex/AGENTS.md'],
+  ['AGENTS.md', '.agents/AGENTS.md'],
+  ['CLAUDE.md', '.claude/CLAUDE.md'],
+] as const;
 
 export interface Action {
   status: 'ok' | 'replace' | 'create';

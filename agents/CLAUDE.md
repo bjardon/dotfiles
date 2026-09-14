@@ -1,3 +1,3 @@
-Prefer TypeScript and Node everywhere, when feasible.
+@~/.agents/AGENTS.md
 
 Use the `unslop` skill on EVERYTHING you write.
