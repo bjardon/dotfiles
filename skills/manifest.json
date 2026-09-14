@@ -114,33 +114,33 @@
     {
       "name": "adopt-project",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/adopt-project",
-      "tree": "d439bc15efcdf9d30a5c3c6ef0e6b11f908770db",
+      "tree": "b748e3378c56a5767ab6e9d79e7a06c4982ee6c4",
       "license": "NOASSERTION",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "99d96820417249674874aaab67f28d313950bfed04674c703393126baaf9db5a",
+        "SKILL.md": "dcb8c289323cbaa3e668ece72f1310618cbd1d926de23ddb806b9c36c3c49dbb",
         "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
       }
     },
     {
       "name": "grill",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/grill",
-      "tree": "d315f83a4b63a61f22b40abaca531fa5185bae32",
+      "tree": "bd30d5ac5f7a146f1abad20c02a5fab359ad684c",
       "license": "NOASSERTION",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "05d0fd0eddb07c6743ec56c9cccc505871ba329134c9dbbf3e190a9db7aaf47b",
+        "SKILL.md": "049a29213db2902d416382fd755a5a894b95d27cd2a2355400b0772f4950f88e",
         "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
       }
     },
     {
       "name": "handoff",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/handoff",
       "tree": "e86be5994333a8125fdf6500988dfeda452877c6",
       "license": "NOASSERTION",
@@ -153,7 +153,7 @@
     {
       "name": "implement",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/implement",
       "tree": "9632cd50e34f14ee982cb1e65c2886aeba056a9e",
       "license": "NOASSERTION",
@@ -166,34 +166,34 @@
     {
       "name": "init-agent-os",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/init-agent-os",
-      "tree": "866458d6f2d6dd847d9c5d96ed26c74b164665c8",
+      "tree": "6855ec8e1a5b174f24408637327e0f4e68a22389",
       "license": "NOASSERTION",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "AGENTS-TEMPLATE.md": "85f3609f1a7511aacfd125dff75bdd29af9d11718d35de46cb81e0dd70adb33a",
-        "SKILL.md": "5b1db0d0d8cb78dcdb0d89a84ccc9c00aa985f5908f15d2e93b2505ee3c54c5b",
+        "AGENTS-TEMPLATE.md": "fb92c9ff8b7e14cd04b2d09dec590790b1fab560ae5e3ac78dcfed8e51e19b96",
+        "SKILL.md": "ba27bb6cdf6fd3ca8ec0be67c9cea8878b72e8f51d1e32f9ce88e49fe54f33f6",
         "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
       }
     },
     {
       "name": "intake",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/intake",
-      "tree": "bdf86eca8529b0581722453d0caa38a68f1484c4",
+      "tree": "60233c2d4938870be5fbbfee99580fa973b16b40",
       "license": "NOASSERTION",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "503fc74cf9b8f125017e8d32b624855324c5d5535133628c63b5d85a1fc1d14c",
+        "SKILL.md": "6cb223254c777163757a2500c40ea75b036b93402c8a448869fb95ca0013e02b",
         "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
       }
     },
     {
       "name": "maintain-language",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/maintain-language",
       "tree": "8d9a9843d869400b79e752c92c186542e851f3ef",
       "license": "NOASSERTION",
@@ -207,7 +207,7 @@
     {
       "name": "maintain-living-docs",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/maintain-living-docs",
       "tree": "903b008bd14f61738122d6e4d490b8758b467f78",
       "license": "NOASSERTION",
@@ -220,20 +220,20 @@
     {
       "name": "map-decisions",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/map-decisions",
-      "tree": "22df3f42e4a4a9a703f53e526f57251cbfaa820c",
+      "tree": "1adf99126d72ea9bce2b4a17824fac7258f7a498",
       "license": "NOASSERTION",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "e291e398acc5ee58578b7a5d55993de77229256396282bd6687b22e48e421744",
+        "SKILL.md": "f810a208ec56a844dd02e2d4be0c9a8531f33eca91a4fce970760397e69f4dfb",
         "agents/openai.yaml": "b8daa849c7cb8861e66f88a94666a39f45122e083f2d9b749f1a456b0f6c645b"
       }
     },
     {
       "name": "prototype",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/prototype",
       "tree": "239c006c89d5c723ee6b82ad39ddcdec0f5a7b61",
       "license": "NOASSERTION",
@@ -248,7 +248,7 @@
     {
       "name": "write-adr",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/write-adr",
       "tree": "63c48ebbefa1099918f077a43cd0461b50457a6f",
       "license": "NOASSERTION",
@@ -262,7 +262,7 @@
     {
       "name": "write-issues",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "5ba01ca31041526e7105bd3278ecd1c6b057acd8",
+      "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
       "path": "skills/write-issues",
       "tree": "de3ba3d0b7be85baae060aed01359c963d6b0386",
       "license": "NOASSERTION",

@@ -95,7 +95,7 @@ Omit empty sections. Recommend the next workflow based on what remains:
 
 1. `init-agent-os` if the repo is greenfield or lacks an Agent Operating System.
 2. `map-decisions` when the proposed work contains dependent decisions or unclear Milestone boundaries.
-3. `grill` when a concrete plan has unresolved assumptions, vocabulary, scope boundaries, or authority questions.
+3. `grill` when a concrete plan has unresolved assumptions, vocabulary, scope boundaries, or authority questions, or when an open design question needs a decision but has no proposal yet.
 4. `write-issues` when accepted scope would benefit from tracking separate outcomes.
 5. `implement` when the user tells the agent to build a specific piece and no planning artifact would help.
 6. A docs update when the intake finds accepted durable knowledge missing from repo docs.

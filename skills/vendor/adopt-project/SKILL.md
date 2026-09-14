@@ -145,6 +145,7 @@ Existing project reality wins for the integration workflow: where the audit reve
 
 - Integration workflow: squash-merge into the normal integration branch, with the pull request title validated as the Conventional Commit message.
 - Issue tracker: Linear by default. Record in `AGENTS.md` the Linear team and project that resolve an issue id, and ensure the workspace has two label groups: `type` (`feature`, `decision`, `docs`, `bug`, `chore`) and `resolution` (`research`, `grilling`, `prototype`). When the audit finds the project already on a different tracker, record that in `AGENTS.md` as the client-tracker exception rather than keeping it silently. Linear owns Decision Maps, Decision Issues, Feature Issues, and Sub-Issues.
+- Engineering workflows: when agents rely on the shared SynoraStudio playbook for the workflows they run, record a single discovery pointer to it in `AGENTS.md` so the workflow definitions stay findable. Record only the pointer, consistent with translating conventions into project-owned guidance rather than copying playbook prose, listing skills, or keeping a version marker.
 
 If an existing convention conflicts with a default, is incomplete, or appears tool-specific rather than project-specific, include the ambiguity in the adoption proposal and ask before changing it. Do not interview the user about local dev-server ownership, branch naming, PR templates, or review flow, and do not inject other preferences the repository has not chosen.
 

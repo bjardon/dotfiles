@@ -67,11 +67,23 @@ Order branches by dependency. Identify the branch that blocks the most downstrea
 
 Keep small questions in the Decision Map and record their explicit resolution there. Create a child Decision Issue only when one question needs its own Grilling Session, research effort, prototype, or owner.
 
-Every decision issue carries `type: decision`. Add a `resolution` label saying how it resolves, and resolve it through that workflow rather than ad hoc: `grilling` for a Grilling Session (the `grill` skill, one question at a time), `prototype` for a throwaway artifact (the `prototype` skill), or `research` for away-from-keyboard digging that records sources and conclusions. A question settled in conversation needs no `resolution` label.
+Every decision issue carries `type: decision`. Add a `resolution` label saying how it resolves, and resolve it through that workflow rather than ad hoc: `grilling` for a Grilling Session (the `grill` skill, working the design tree in rounds), `prototype` for a throwaway artifact (the `prototype` skill), or `research` for away-from-keyboard digging that records sources and conclusions. A question settled in conversation needs no `resolution` label.
 
 Each Decision Issue should state the question, why it matters, known constraints, credible options, the current recommendation when one exists, resolution criteria, consequences, and references.
 
 Keep full reasoning in the child issue. When it resolves, add a short linked resolution to the parent map. Use `write-adr` when the accepted answer is hard to reverse, surprising, and resulted from a real trade-off.
+
+## Work through the map
+
+Resolving mapped decisions is a distinct invocation from charting: the map already exists and the user points at it, or at a single Decision Issue. A named issue is optional — without one, pick the next decision rather than asking which.
+
+1. Load the map at low resolution, not every child issue body.
+2. Choose the decision. If the user named one, first confirm its blocking decisions are resolved; when any remain open, resolve the next open blocker in dependency order, or defer the named decision until they clear. Otherwise take the next unresolved branch in dependency order, skipping any whose blocking decisions are still open.
+3. Load the selected Decision Issue's full body first, so its question, constraints, and criteria are in hand rather than just its title; a no-label question carries none, as its text lives on the map. Then dispatch on the `resolution` label rather than resolving ad hoc: `grilling` runs the `grill` skill, `prototype` runs the `prototype` skill, `research` runs an away-from-keyboard research pass that records its sources and conclusion. Confirm with the user before dispatching to `prototype`: building one enters build mode, which a bare request to resolve the map does not authorize. A decision with no `resolution` label is small enough to settle in conversation here.
+4. Record the outcome. When the branch resolved, keep the full reasoning in its child Decision Issue and add a linked one-line resolution to the parent map's `Resolved decisions`; a question carrying no `resolution` label records its reasoning and resolution on the map itself. When the workflow instead handed a branch back — because it surfaced a question needing a prototype, research, or its own resolution — record the deferral rather than a resolution, note any blocking spin-off the workflow already minted, and carry any independent handed-back question into the next step. Reconcile any constraint the outcome hands to a sibling decision, and use `write-adr` when a resolved answer is hard to reverse, surprising, and the product of a real trade-off.
+5. Graduate newly-specifiable decisions into the map, including the independent questions a Grilling Session handed back: create each as a child Decision Issue with the right `resolution` label, and when it blocks a deferred branch point that branch's `blockedBy` edge at the new decision and keep the branch deferred until it clears. A Grilling Session mints its own blocking spin-off, so adopt that issue into the map rather than recreating it. Re-order the remaining branches when the outcome changed their dependencies.
+
+Resolving a decision produces a decision, not an implementation. Grouping the resulting repository changes into pull requests and building features are separate steps, routed after the map settles.
 
 ## Settle the Milestone shape
 

@@ -18,7 +18,7 @@ Each configuration area keeps its own files and restore steps.
 
 Nineteen skills are checked into Git. The original seven match the versions
 installed on this Mac; the twelve SynoraStudio skills are pinned to upstream
-commit `5ba01ca31041526e7105bd3278ecd1c6b057acd8`.
+commit `3070848f4fae3cb1a736bf5fda24d6d50eaefe64`.
 
 | Source | Selected skills |
 | --- | --- |
