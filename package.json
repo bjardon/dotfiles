@@ -1,15 +1,16 @@
 {
   "name": "@bjardon/dotfiles",
   "private": true,
+  "packageManager": "pnpm@11.5.2",
   "type": "module",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && tsx scripts/skills.ts check && tsx scripts/agents.ts check",
+    "check": "pnpm run typecheck && tsx scripts/skills.ts check && tsx scripts/agents.ts check",
     "skills": "tsx scripts/skills.ts",
-    "test": "npm run typecheck && tsx --test tests/*.test.ts",
+    "test": "pnpm run typecheck && tsx --test tests/*.test.ts",
     "agents": "tsx scripts/agents.ts"
   },
   "devDependencies": {

@@ -102,7 +102,7 @@ export function main(args = process.argv.slice(2)): number {
       apply: { type: 'boolean', default: false }, home: { type: 'string', default: homedir() }, help: { type: 'boolean', short: 'h' },
     } });
     if (values.help) {
-      console.log('Usage: npm run agents -- <check|install> [--apply] [--home PATH]\nPreview unless --apply. --home selects an existing alternate home for testing.');
+      console.log('Usage: pnpm run agents <check|install> [--apply] [--home PATH]\nPreview unless --apply. --home selects an existing alternate home for testing.');
       return 0;
     }
     if (positionals.length !== 1 || !['check', 'install'].includes(positionals[0] ?? '')) throw new Error('Expected check or install. Use --help for usage.');

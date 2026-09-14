@@ -35,15 +35,15 @@ Existing unselected skills are left alone.
 
 ## Restoring skills on a Mac
 
-Install Git and Node.js 22 or newer first. Clone this repository into a permanent location:
+Install Git, Node.js 22 or newer, and pnpm 11.5.2 first. Clone this repository into a permanent location:
 
 ```sh
 git clone git@github.com:bjardon/dotfiles.git ~/Documents/Experiments/dotfiles
 cd ~/Documents/Experiments/dotfiles
-npm ci
-npm run check
-npm run skills -- install
-npm run skills -- install --apply
+pnpm install --frozen-lockfile
+pnpm run check
+pnpm run skills install
+pnpm run skills install --apply
 ```
 
 `install` previews every link without writing files. `--apply` links the vendored
@@ -86,17 +86,17 @@ links. Remove those links explicitly before deleting its vendored directory.
 Credentials, company-specific settings, plugin caches, and agent session history
 stay outside this repository.
 
-The installer and tests are TypeScript, run through `tsx`. Run `npm ci` after
+The installer and tests are TypeScript, run through `tsx`. Run `pnpm install --frozen-lockfile` after
 cloning to install the locked development tools. No build step is required.
-`tsx` executes TypeScript without type checking, so `npm run check` and `npm test`
-both run strict `tsc --noEmit` checks first. `npm run typecheck` checks types alone.
+`tsx` executes TypeScript without type checking, so `pnpm run check` and `pnpm test`
+both run strict `tsc --noEmit` checks first. `pnpm run typecheck` checks types alone.
 JSON manifests are validated at runtime before any filesystem changes.
 
 ## Validation
 
 ```sh
-npm run check
-npm test
+pnpm run check
+pnpm test
 ```
 
 Tests use temporary homes for preview, installation, backups, repeat runs, and
@@ -104,11 +104,11 @@ failure cases. They do not alter the current user's skill installation.
 
 ## Restoring global agent instructions
 
-After `npm ci`, follow the [agent instructions guide](agents/README.md):
+After `pnpm install --frozen-lockfile`, follow the [agent instructions guide](agents/README.md):
 
 ```sh
-npm run agents -- install
-npm run agents -- install --apply
+pnpm run agents install
+pnpm run agents install --apply
 ```
 
 This links shared instructions into `~/.agents/AGENTS.md`, with an additional

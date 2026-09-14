@@ -24,13 +24,13 @@ instruction symlinks outside its working directory; this setup targets Claude Co
 
 ## Restore
 
-With Node.js 22 or newer and `npm ci` already completed at the repository root:
+With Node.js 22 or newer, pnpm 11.5.2, and `pnpm install --frozen-lockfile` already completed at the repository root:
 
 ```sh
-npm run check
-npm test
-npm run agents -- install
-npm run agents -- install --apply
+pnpm run check
+pnpm test
+pnpm run agents install
+pnpm run agents install --apply
 ```
 
 The first install command previews changes. Applying creates symlinks into this
@@ -62,9 +62,9 @@ partway through, preview again to see the remaining changes.
 
 ## Checks
 
-`npm run check` checks TypeScript and both areas. `npm test` exercises restoration
+`pnpm run check` checks TypeScript and both areas. `pnpm test` exercises restoration
 in temporary homes, including backups, repeat runs, and failures. For a separate
-preview, use `npm run agents -- install --home /path/to/existing/test-home`.
+preview, use `pnpm run agents install --home /path/to/existing/test-home`.
 Keep global preferences concise. Put project conventions in each project's own
 instructions and task-specific procedures in skills. Credentials, company
 settings, and session history belong outside this area.

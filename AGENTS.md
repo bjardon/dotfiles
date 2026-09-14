@@ -22,6 +22,6 @@ this pattern.
 
 ## Commands
 
-Commands are per-area and defined in that area's tooling (for skills, the npm
+Commands are per-area and defined in that area's tooling (for skills, the package
 scripts in [package.json](package.json)). Check the relevant README for the current
 set rather than assuming one here.
