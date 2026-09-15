@@ -1,3 +1,5 @@
 @~/.agents/AGENTS.md
 
-Use the `unslop` skill on EVERYTHING you write.
+My Claude-specific preferences:
+
+- Use the `unslop` skill on EVERYTHING you write.
