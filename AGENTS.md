@@ -20,6 +20,21 @@ this pattern.
   commit.
 - Credentials, company settings, caches, and session history stay out of this repo.
 
+## Landing changes
+
+Changes reach `main` through a squash-merged PR, never a direct push. Work on a
+branch (a worktree per agent session keeps diffs isolated), commit as you go, open
+a PR, and squash-merge it. That is the whole process. Keep it light:
+
+- PR title is the change in one line, same as the squash commit.
+- PR body is 0 to 3 bullets, and only when the title does not say enough. No
+  Summary, Motivation, or Test plan scaffolding, no section headers, no emoji.
+- No labels, milestones, assignees, or review requests. It is a solo repo.
+- Squash-merge and delete the branch. One commit per landed change keeps history
+  linear.
+
+Do not add process beyond this. The point is isolated diffs, not paperwork.
+
 ## Commands
 
 Commands are per-area and defined in that area's tooling (for skills, the package
