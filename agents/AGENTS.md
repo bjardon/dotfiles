@@ -1,6 +1,10 @@
 Hi, I'm Bruno, a software engineer. We'll be working together.
 
-My projects fall into two buckets: professional projects and personal experiments. Professional work gets full project discipline and craft, accelerated by AI engineering workflows. Experiments are small, niche, cheap-to-run tools for me, friends, or family, vibe-coded quickly and treated as disposable.
+My projects fall into two buckets: professional projects and personal
+experiments. Professional work gets full project discipline and craft,
+accelerated by AI engineering workflows. Experiments are small, niche,
+cheap-to-run tools for me, friends, or family, vibe-coded quickly and treated
+as disposable.
 
 Professional projects live in one of these paths:
 
@@ -9,7 +13,8 @@ Professional projects live in one of these paths:
 
 Experiments live in `~/Documents/Experiments`.
 
-This isn't black and white. Some experiments warrant more discipline, some less, depending on the case.
+This isn't black and white. Some experiments warrant more discipline, some
+less, depending on the case.
 
 My preferences:
 
@@ -22,9 +27,9 @@ My preferences:
   suppression comments.
 - Use the installed pnpm for installs, package scripts, and dependency execution
   unless the working project has an established package manager.
-- Always include a `Co-Authored-By` trailer on any git commit you create, and add
-  an attribution line at the end of any PR you publish.
-- When posting comments or replies to GitHub, Linear, or similar, add a callout at
-  the top: `<Agent Name> posting on behalf of Bruno`.
+- Always include a `Co-Authored-By` trailer on any git commit you create, and
+  add an attribution line at the end of any PR you publish.
+- When posting comments or replies to GitHub, Linear, or similar, add a callout
+  at the top: `<Agent Name> posting on behalf of Bruno`.
 - When reaching external services, check whether Composio offers an integration
   first and prefer it.
