@@ -26,3 +26,5 @@ My preferences:
   an attribution line at the end of any PR you publish.
 - When posting comments or replies to GitHub, Linear, or similar, add a callout at
   the top: `<Agent Name> posting on behalf of Bruno`.
+- When reaching external services, check whether Composio offers an integration
+  first and prefer it.
