@@ -16,22 +16,26 @@ Each configuration area keeps its own files and restore steps.
 
 ## Skills
 
-Nineteen skills are checked into Git. The original seven match the versions
-installed on this Mac; the twelve SynoraStudio skills are pinned to upstream
-commit `3070848f4fae3cb1a736bf5fda24d6d50eaefe64`.
+Twenty-one skills are checked into Git. The original seven match the versions
+installed on this Mac; the twelve SynoraStudio skills and two personal skills
+are pinned to their upstream commits.
 
 | Source | Selected skills |
 | --- | --- |
 | [pstack](https://github.com/cursor/plugins/tree/main/pstack) | blast-radius, bro, how, unslop, why |
 | [Matt Pocock](https://github.com/mattpocock/skills) | codebase-design, writing-for-agents |
+| [Bruno Jardon](https://github.com/bjardon/skills) | discuss, experiment |
 | [SynoraStudio](https://github.com/synorastudio/eng-playbook) | adopt-project, grill, handoff, implement, init-agent-os, intake, maintain-language, maintain-living-docs, map-decisions, prototype, write-adr, write-issues |
 
 [The manifest](skills/manifest.json) records exact commits, file checksums, licenses,
-and destination folders. SynoraStudio declares no upstream license; its entries
-use `NOASSERTION` with a [provenance note](skills/licenses/eng-playbook.txt). [Skill policy](skills/README.md) describes what belongs
-here. [CLI-managed skills](skills/cli-managed.md) records Composio and Railway.
-`gh-cli`, `linear-cli`, `find-skills`, and the missing `discuss` are not selected.
-Existing unselected skills are left alone.
+and destination folders. The SynoraStudio and personal repositories declare no
+upstream license; their entries use `NOASSERTION` with provenance notes for
+[eng-playbook](skills/licenses/eng-playbook.txt) and
+[bjardon/skills](skills/licenses/bjardon-skills.txt).
+[Skill policy](skills/README.md) describes what belongs here. [CLI-managed
+skills](skills/cli-managed.md) records Composio and Railway. `gh-cli`,
+`linear-cli`, and `find-skills` are not selected. Existing unselected skills are
+left alone.
 
 ## Restoring skills on a Mac
 
