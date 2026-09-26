@@ -1,0 +1,11 @@
+Bruno Jardon's personal skills: licensing status
+
+Source: https://github.com/bjardon/skills
+Commit: be843366b45e153ad8ba69216fd5e82c9c78cb43
+
+No LICENSE file or license declaration was found in the source repository at
+this commit. NOASSERTION records that absence; it is not a license grant.
+
+The two skill directories were imported unchanged into this personal dotfiles
+repository at the repository owner's explicit request. This note records their
+provenance.

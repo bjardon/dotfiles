@@ -112,6 +112,32 @@
       }
     },
     {
+      "name": "discuss",
+      "source": "https://github.com/bjardon/skills.git",
+      "commit": "be843366b45e153ad8ba69216fd5e82c9c78cb43",
+      "path": "skills/discuss",
+      "tree": "833166fa02f2ff3141075734c6456c68b3a659c9",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/bjardon-skills.txt",
+      "files": {
+        "SKILL.md": "d8ad01e3c321fb42132fc2fe955bab738de2de9e780528ca48bb7e890ed631b7",
+        "agents/openai.yaml": "c567b4a98072b22ed3b688506eeaf9bd60232c41f602cc782121c5f1535f76a3"
+      }
+    },
+    {
+      "name": "experiment",
+      "source": "https://github.com/bjardon/skills.git",
+      "commit": "be843366b45e153ad8ba69216fd5e82c9c78cb43",
+      "path": "skills/experiment",
+      "tree": "eeadd57a74812ee93e77594285164a016f179a4e",
+      "license": "NOASSERTION",
+      "license_file": "skills/licenses/bjardon-skills.txt",
+      "files": {
+        "SKILL.md": "cf3de3296c77d740becd9feb38eb9fe76b4d7af68645ab39a79f17ef510cf35f",
+        "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
+      }
+    },
+    {
       "name": "adopt-project",
       "source": "https://github.com/synorastudio/eng-playbook.git",
       "commit": "3070848f4fae3cb1a736bf5fda24d6d50eaefe64",
