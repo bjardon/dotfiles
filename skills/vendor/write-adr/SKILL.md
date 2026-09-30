@@ -24,7 +24,8 @@ If any condition is false, do not create an ADR.
 3. Identify the next sequential number.
 4. Write the shortest ADR that preserves the decision and why it was made.
 5. Link related Living Docs when the link helps a future reader find current system context.
-6. Confirm that the file number is unique and the text states the choice, its context, and the trade-off.
+6. When the decision leaves a question open that later work depends on, track that question as a Decision Issue and add a `blockedBy` relation from the dependent issue. The ADR links the Decision Issue, so the tracker shows the work is still blocked.
+7. Confirm that the file number is unique and the text states the choice, its context, and the trade-off.
 
 ## Default shape
 
@@ -41,3 +42,5 @@ One to three sentences explaining the context, the decision, and why this trade-
 - Duplicating details already better captured in `docs/architecture.md`.
 - Renumbering existing ADRs.
 - Creating ADRs just because a decision was discussed.
+- Restating the ADR's reasoning in the pull request that adds it. The description links the ADR and any Decision Issue.
+- Holding an open question that gates later work only in ADR prose.

@@ -27,6 +27,7 @@ Before grilling, read relevant existing artifacts when available:
 - `LANGUAGE-MAP.md` if multiple language contexts exist.
 - Relevant durable docs under `docs/`, including living docs and ADRs.
 - The linked Decision Map and Decision Issue when the Grilling Session is resolving a mapped branch.
+- The Feature Issue when the Grilling Session settles a slice before it is built.
 - The specific plan, feature, design, decision, or architecture question being grilled.
 
 The subject may be a concrete proposal, or an open decision with no proposal yet — a mapped Decision Issue is often the latter. Both are in scope:
@@ -105,6 +106,8 @@ When an ADR is clearly warranted, offer to write it immediately and follow `../w
 
 When the session owns a linked Decision Issue, record its accepted resolution and update the parent Decision Map before moving on. Keep the full reasoning in the Decision Issue and only a linked summary in the map.
 
+When the subject is a Feature Issue, write the accepted decisions back into it before the session ends. Update the scope and acceptance criteria the decisions change, and list the rest under a `Settled decisions` section, one line each. Link the ADR or Decision Issue that holds the reasoning when one exists; otherwise add the reason in a short clause. The agent that builds the slice reads the issue, and this conversation may be gone by then.
+
 Do not update living docs, create Feature Issues, or initialize Agent OS files from this skill unless the user explicitly asks to switch workflows.
 
 ## Contribute back to the map
@@ -126,5 +129,6 @@ Complete the grilling session when:
 - Key terms are aligned with `LANGUAGE.md`.
 - ADR-worthy decisions have been identified.
 - Each remaining uncertainty has an owner or a named next workflow.
+- A grilled Feature Issue carries every accepted decision in its criteria or `Settled decisions`.
 
-End with a compact decision summary, explicit deferrals, any branches handed back to the map, doc changes, ADR candidates, and the next recommended action. Return to `map-decisions` when other mapped branches remain, or when a handed-back branch needs to be minted onto the map. Suggest `write-issues` when the settled scope is ready to become Feature Issues.
+End with a compact decision summary, explicit deferrals, any branches handed back to the map, doc changes, ADR candidates, and the next recommended action. Return to `map-decisions` when other mapped branches remain, or when a handed-back branch needs to be minted onto the map. Suggest `write-issues` when the settled scope is ready to become Feature Issues. When a grilled Feature Issue has no open decisions left, say so; building still waits for the user's go-ahead.

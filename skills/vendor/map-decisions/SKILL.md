@@ -71,7 +71,7 @@ Every decision issue carries `type: decision`. Add a `resolution` label saying h
 
 Each Decision Issue should state the question, why it matters, known constraints, credible options, the current recommendation when one exists, resolution criteria, consequences, and references.
 
-Keep full reasoning in the child issue. When it resolves, add a short linked resolution to the parent map. Use `write-adr` when the accepted answer is hard to reverse, surprising, and resulted from a real trade-off.
+Keep full reasoning in the child issue. When it resolves, add a short linked resolution to the parent map. A pull request that records the decision in the repo, such as an ADR or a `LANGUAGE.md` change, links the Decision Issue instead of restating its reasoning. Use `write-adr` when the accepted answer is hard to reverse, surprising, and resulted from a real trade-off.
 
 ## Work through the map
 
