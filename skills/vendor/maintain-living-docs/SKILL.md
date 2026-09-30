@@ -18,6 +18,8 @@ Update living docs only when the information is:
 
 Skip temporary plans, unresolved speculation, and details that will rot quickly.
 
+Project knowledge you would otherwise save to agent-private memory, such as an environment quirk or a verification workaround, qualifies. Put it in a Living Doc or Agent Guidance, where every agent and human can read and correct it.
+
 ## Boundaries
 
 This skill owns living explanatory docs:

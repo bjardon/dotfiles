@@ -1,7 +1,7 @@
 SynoraStudio engineering playbook: licensing status
 
 Source: https://github.com/synorastudio/eng-playbook
-Commit: 3070848f4fae3cb1a736bf5fda24d6d50eaefe64
+Commit: 0e2af500e7e4d91b2be6fcd6b5d3deca085254fd
 
 No LICENSE file or license declaration was found in the upstream repository at
 this commit. NOASSERTION records that absence; it is not a license grant.
