@@ -2,6 +2,7 @@
 name: adopt-project
 description: "Audit an existing repo and apply an approved Agent Operating System proposal."
 disable-model-invocation: true
+license: MIT
 ---
 
 # Adopt a project
@@ -29,6 +30,8 @@ Audit for these outcomes while staying tech-agnostic:
 - Applicable conventions are backed by project-owned controls that prevent violations or make them visible.
 - Every commit entering integration history follows `<type>[optional scope][!]: <description>` with an allowed type: `feat`, `fix`, `docs`, `refactor`, `test`, `build`, `ci`, `chore`, `perf`, `style`, or `revert`. Descriptions are imperative, lowercase, and have no trailing period. Breaking changes use `!` and explain the break and migration path in the body when they are not obvious.
 - Agent-generated work is attributed at the durable boundary that records it.
+- A pull request an agent opens for review has passed an independent review loop, or its description says it has not. Agents move an issue to In Progress when they start building it and leave later status changes to tracker automation.
+- Verification steps and coding standards are documented as Project Recipes that Agent Guidance points to.
 
 Prefer guardrails in this order: eliminate the failure through design; detect it through automated or external controls; guide the remaining judgment with concise rules or explicit procedures; rely on user review only for residual cases.
 
@@ -48,6 +51,8 @@ Audit:
 - Environment guidance: Doppler, `.env`, secrets managers, `.env.example`, local/staging/production envs, and how agents should handle secrets.
 - Runtime and deployment guidance: where the project runs, where it deploys, how to start it locally, and how agents avoid touching production.
 - Command registry: where common commands are documented and how agents should discover them without inventing stack-specific commands.
+- Project Recipes: whether `docs/verification.md` (checks, launch, authentication, walkthrough steps) and `docs/coding-standards.md` (patterns, judgment rules, pointers to lint and format configuration) exist and match reality. When coding standards are missing, draft them from the patterns the existing code already follows and include the draft in the proposal for approval.
+- Pull request description: whether the PR template carries Summary, Diagram (only for changed boundaries, data flows, or state transitions), Verification, Delivery record (when an agent ran the review loop), and the optional Guardrail candidates and Approved deviations.
 - Safety rules: data, auth, secrets, deployment, migrations, paid services, and destructive operations.
 - Project Guardrails: architecture constraints, tests, static checks, continuous integration, repository settings, tracker states, service permissions, deployment gates, agent rules, and review practices.
 - External controls: important protections or workflow states that do not live in Git, plus any repo pointer an agent needs to discover them.
@@ -100,6 +105,7 @@ Adoption may create or update the same artifact universe as greenfield initializ
 - `LANGUAGE-MAP.md`: routing for multiple language contexts.
 - `docs/architecture.md`: current system shape and navigation.
 - `docs/adr/`: durable decisions.
+- `docs/verification.md` and `docs/coding-standards.md`: Project Recipes for the project's verification steps and coding standards.
 - Rules index: a short `AGENTS.md` section that points to detailed agent rule docs.
 - README workflow sections: how the project expects agents and humans to work.
 - Review templates and contribution docs: collaboration, commit, branch, issue-linking, and review workflow.
@@ -144,7 +150,7 @@ Use tool-specific rule directories only when the user explicitly asks for them o
 Existing project reality wins for the integration workflow: where the audit reveals a real one, preserve it and link to its source from `AGENTS.md` only when future agents need the pointer; where it reveals none, apply the default. Apply SynoraStudio's standing defaults instead of interviewing the user:
 
 - Integration workflow: squash-merge into the normal integration branch, with the pull request title validated as the Conventional Commit message.
-- Issue tracker: Linear by default. Record in `AGENTS.md` the Linear team and project that resolve an issue id, and ensure the workspace has two label groups: `type` (`feature`, `decision`, `docs`, `bug`, `chore`) and `resolution` (`research`, `grilling`, `prototype`). When the audit finds the project already on a different tracker, record that in `AGENTS.md` as the client-tracker exception rather than keeping it silently. Linear owns Decision Maps, Decision Issues, Feature Issues, and Sub-Issues.
+- Issue tracker: Linear by default. Record in `AGENTS.md` the Linear team and project that resolve an issue id, and ensure the workspace has two label groups: `type` (`feature`, `decision`, `docs`, `bug`, `chore`, `guardrail`) and `resolution` (`research`, `grilling`, `prototype`). When the audit finds the project already on a different tracker, record that in `AGENTS.md` as the client-tracker exception rather than keeping it silently. Linear owns Decision Maps, Decision Issues, Feature Issues, and Sub-Issues.
 - Engineering workflows: when agents rely on the shared SynoraStudio playbook for the workflows they run, record a single discovery pointer to it in `AGENTS.md` so the workflow definitions stay findable. Record only the pointer, consistent with translating conventions into project-owned guidance rather than copying playbook prose, listing skills, or keeping a version marker.
 
 If an existing convention conflicts with a default, is incomplete, or appears tool-specific rather than project-specific, include the ambiguity in the adoption proposal and ask before changing it. Do not interview the user about local dev-server ownership, branch naming, PR templates, or review flow, and do not inject other preferences the repository has not chosen.

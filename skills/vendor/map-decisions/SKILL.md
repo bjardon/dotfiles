@@ -1,6 +1,7 @@
 ---
 name: map-decisions
 description: Map and resolve the dependent decisions inside a body of work in Linear, either to discover Milestone boundaries or to decompose an accepted Milestone. Do not use when there are no substantial decisions or for ordinary implementation planning.
+license: MIT
 ---
 
 # Map decisions
@@ -107,4 +108,4 @@ A Decision Map and its Decision Issues create no Git branches by default. When a
 
 Finish the initial mapping pass when no material decision branch is hidden, the branches are ordered by dependency, each unresolved branch has a named resolution workflow, and candidate Milestones are clearly marked as provisional. Leave the Decision Map active while its blocking decisions remain unresolved.
 
-After every blocking decision is resolved or explicitly deferred outside the affected Milestone, settle the outcome: in Discover mode, replace candidate Milestones with the resulting Milestone or sequence; in Decompose mode, the fixed Milestone stands. Link the resulting work to its accepted source. Route to `write-issues` to decompose it into the feature tree, or `implement` when the user tells the agent to build a specific piece directly. Close the Decision Map after its resulting work is linked and no blocking decision remains hidden.
+After every blocking decision is resolved or explicitly deferred outside the affected Milestone, settle the outcome: in Discover mode, replace candidate Milestones with the resulting Milestone or sequence; in Decompose mode, the fixed Milestone stands. Link the resulting work to its accepted source. Route to `write-issues` to decompose it into the feature tree, or `build` or `implement` when the user tells the agent to build a specific piece directly. Close the Decision Map after its resulting work is linked and no blocking decision remains hidden.

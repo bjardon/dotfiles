@@ -1,7 +1,7 @@
 ---
 name: implement
-description: Implement work the user has told you to build, as verified production code.
-disable-model-invocation: true
+description: Implement a piece the user explicitly told you to build, as verified production code, or fix review Findings on it. Use after that go-ahead, or when a delivery loop reaches its Implement, Verify, or Fix step. Never use during planning.
+license: MIT
 ---
 
 # Implement what the user asked you to build
@@ -30,11 +30,15 @@ Once the user names it, ground the work in the most specific accepted source ava
 
 A Feature Issue is useful, not mandatory. When sources conflict or leave a blocking product decision unresolved, pause for the user. When the slice still leaves choices open that would change its scope or acceptance criteria, suggest `grill` before building.
 
-Read the target repo's Agent Guidance and only the Language, ADRs, Living Docs, tracker context, Project Guardrails, and code relevant to the work you were asked to build. Include external controls such as required checks, protected integration paths, deployment gates, and tracker states when they affect delivery. Use the current implementation to discover constraints. Do not use it to expand the accepted scope.
+Read the target repo's Agent Guidance and only the Language, ADRs, Living Docs, Project Recipes, tracker context, Project Guardrails, and code relevant to the work you were asked to build. Project Recipes are the docs Agent Guidance points to for the project's own verification steps (usually `docs/verification.md`) and coding standards (usually `docs/coding-standards.md`). Include external controls such as required checks, protected integration paths, deployment gates, and tracker states when they affect delivery. Use the current implementation to discover constraints. Do not use it to expand the accepted scope.
 
 Before editing, identify the observable outcome, the acceptance criteria that apply, and how the result can be verified. If what you were asked to build still contains several independent or dependency-ordered pieces, start with the smallest dependency-ready piece unless the user asked to complete the whole set.
 
 ## Work inside what you were asked to build
+
+When the user approved an interface for this work, such as stubs, signatures, types, and pending test names committed on the branch, implement behind it and turn each pending test into a real one. Changing an approved interface pauses for the user. When the piece adds a module or changes what callers of one must know and no interface was approved, propose that interface as stubs, signatures, types, and pending test names in one commit, and wait for the user to approve it before implementing.
+
+Write code to the coding-standards recipe. Without one, follow the patterns of the code around the change.
 
 Choose reversible implementation details autonomously. Pause when the work requires:
 
@@ -57,7 +61,7 @@ Use this deviation rule exactly:
 
 ## Implement and verify
 
-Keep the feedback loop tight. Use focused checks while working and run the broadest relevant project checks before finishing. Discover those checks from Agent Guidance, project configuration, and existing conventions rather than assuming a stack.
+Keep the feedback loop tight. Use focused checks while working and run the broadest relevant project checks before finishing. Follow the verification recipe for the checks to run, how to launch the system, how to get past authentication, and the walkthrough steps that exercise acceptance criteria. Without one, discover the checks from Agent Guidance, project configuration, and existing conventions rather than assuming a stack.
 
 Add or update tests at stable, behavior-relevant boundaries when the repo supports them and the change warrants coverage. Use manual verification when automated coverage is unavailable or disproportionate, and state exactly what was checked.
 
@@ -72,6 +76,10 @@ Before finishing:
 3. Run the broadest relevant checks available.
 4. Separate failures caused by the change from unrelated failures that already existed. Fix only failures inside what you were asked to build and report the rest.
 5. Confirm that changed Project Guardrails and their documentation or external configuration still agree, including every copy of a changed check or command.
+
+## Fix review Findings
+
+When a reviewer hands back Findings, fix every `blocking` and `should-fix` one inside what you were asked to build, then verify again. Leave `nit` Findings for the pull request description. A Finding whose fix would cross one of the pause conditions above goes to the user instead of being fixed. Report each Finding as fixed or escalated so the next review round can check it.
 
 ## Keep durable knowledge true
 
@@ -92,9 +100,16 @@ Do not create speculative documentation or turn implementation notes into long-l
 
 Record project knowledge a future session needs, such as an environment quirk or a verification workaround, in Agent Guidance or a Living Doc rather than in agent-private memory, which no other agent or human can read or correct.
 
-In the pull request description, say what changed and how to verify it, and link the Decision Issue or ADR that holds the reasoning instead of restating it.
+A pull request description has these sections, applied through the project's pull request template when it has one:
 
-Change tracker state or commit only when the user asks or the repo's Agent Guidance makes that part of the workflow. Attribute agent-generated work at the durable boundary that records it. Use commit attribution for repository changes and visible attribution for agent-authored pull request descriptions, reviews, comments, and tracker artifacts, following the project's established format.
+- **Summary**: what changed, linking the issue, Decision Issue, or ADR that holds the reasoning instead of restating it.
+- **Diagram**: a Mermaid diagram, only when the change adds or changes a boundary, a data flow, or a state transition.
+- **Verification**: each acceptance criterion with its evidence, and steps for the user on any criterion you could not exercise.
+- **Delivery record**: when an agent review loop ran, the rounds, Findings fixed by tier and severity, escalations, deferred nits, and fixes made after the pull request opened.
+- **Guardrail candidates** (optional): links to the Guardrail Candidates the change created or added to.
+- **Approved deviations** (optional): each approved deviation and where it was approved.
+
+Move the issue to In Progress when you start building it. Change no other tracker status by hand unless the user asks; later transitions come from tracker automation, such as Linear's GitHub integration. Commit only when the user asks, the repo's Agent Guidance makes that part of the workflow, or the user told you to build the piece end to end, which also authorizes pushing a branch and opening a draft pull request, or a ready one when the project's review bot skips drafts. Attribute agent-generated work at the durable boundary that records it. Use commit attribution for repository changes and visible attribution for agent-authored pull request descriptions, reviews, comments, and tracker artifacts, following the project's established format.
 
 ## Follow the repository's integration workflow
 

@@ -2,6 +2,7 @@
 name: handoff
 description: Write a compact Handoff for a fresh agent. Use when nearing a context limit, session boundary, agent switch, or pause in multi-session work.
 argument-hint: "What should the next session focus on?"
+license: MIT
 ---
 
 # Handoff

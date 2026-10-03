@@ -61,3 +61,7 @@ Scan `docs/adr/` for the highest existing number and increment it by one. Do not
 - Deliberate deviations from the obvious path.
 - Constraints not visible in code.
 - Non-obvious rejected alternatives.
+
+## Credit
+
+Parts of this file adapt text from [Matt Pocock's skills repository](https://github.com/mattpocock/skills), Copyright (c) 2026 Matt Pocock, used under the MIT License.

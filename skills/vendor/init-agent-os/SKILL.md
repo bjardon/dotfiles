@@ -2,6 +2,7 @@
 name: init-agent-os
 description: "Create a minimal, tech-agnostic Agent Operating System in a greenfield repo."
 disable-model-invocation: true
+license: MIT
 ---
 
 # Initialize an Agent Operating System
@@ -49,7 +50,8 @@ Lazy creation:
 - `LANGUAGE.md` when project vocabulary exists.
 - `LANGUAGE-MAP.md` when multiple language files exist.
 - Durable docs under `docs/` when there is actual system shape, upstream provenance, or accepted project knowledge to document.
-- PR or issue templates when the project uses that review or tracking flow.
+- PR or issue templates when the project uses that review or tracking flow. Start a PR template from `PR-TEMPLATE.md`.
+- Project Recipes once the project has code to verify and patterns to follow: `docs/verification.md` for the checks to run, how to launch the system, how agents get past authentication, and walkthrough steps; `docs/coding-standards.md` for the patterns new code follows, rules that need judgment, and pointers to lint and format configuration. Each gets a pointer in the `AGENTS.md` rules index.
 - `.dockerignore`, agent ignore files, or other ignore files when the matching tool exists or the user asks for them.
 
 Keep generated placeholders short. The initial files should invite useful documentation, not create empty bureaucracy.
@@ -65,6 +67,7 @@ Even before the stack exists, encode the outcomes that already apply:
 - Project Guardrails are added when actual architecture or tooling makes a concrete failure preventable or detectable.
 - Every commit entering integration history follows `<type>[optional scope][!]: <description>` with an allowed type: `feat`, `fix`, `docs`, `refactor`, `test`, `build`, `ci`, `chore`, `perf`, `style`, or `revert`. Descriptions are imperative, lowercase, and have no trailing period. Breaking changes use `!` and explain the break and migration path in the body when they are not obvious.
 - Agent-generated work is attributed at the durable boundary that records it.
+- A pull request an agent opens for review has passed an independent review loop, or its description says it has not. Agents move an issue to In Progress when they start building it and leave later status changes to tracker automation.
 
 Prefer guardrails in this order: eliminate the failure through design; detect it through automated or external controls; guide the remaining judgment with concise rules or explicit procedures; rely on user review only for residual cases. Do not invent controls for a stack or workflow that has not been chosen.
 
@@ -99,7 +102,7 @@ Use `AGENTS-TEMPLATE.md` when creating or revising `AGENTS.md`.
 Encode SynoraStudio's standing defaults directly instead of interviewing the user at setup. State them in `AGENTS.md`, and revisit one only when the user asks for something different.
 
 - Integration workflow: once the repository uses pull requests, squash-merge into its normal integration branch with the pull request title validated as the Conventional Commit message. State this intended workflow now, and wire the matching pull-request-title check when the repository gains a remote and CI. Do not reopen the merge-strategy choice, and do not assert a pull-request flow on a repository that has no remote yet.
-- Issue tracker: Linear owns Decision Maps, Decision Issues, Feature Issues, and Sub-Issues. Record in `AGENTS.md` the Linear team and project that resolve an issue id, drawn from the brief or intake, so later work needs only the id. Confirm that reference once when it is not yet known, rather than leaving it out. Ensure the workspace has two label groups: `type` (`feature`, `decision`, `docs`, `bug`, `chore`) and `resolution` (`research`, `grilling`, `prototype`).
+- Issue tracker: Linear owns Decision Maps, Decision Issues, Feature Issues, and Sub-Issues. Record in `AGENTS.md` the Linear team and project that resolve an issue id, drawn from the brief or intake, so later work needs only the id. Confirm that reference once when it is not yet known, rather than leaving it out. Ensure the workspace has two label groups: `type` (`feature`, `decision`, `docs`, `bug`, `chore`, `guardrail`) and `resolution` (`research`, `grilling`, `prototype`).
 - Engineering workflows: record a single pointer in `AGENTS.md` to the shared SynoraStudio engineering playbook that defines the workflows agents run (Decision Maps, grilling, issue writing), so an agent can find those definitions without being told where they live. This is a discovery pointer only — not copied convention prose, an installed-skill list, or a playbook version marker.
 
 Do not interview the user about local dev-server ownership, branch naming, PR templates, review flow, or other working agreements. Add extra guidance only for a real constraint the repository already imposes, and keep stack-specific commands and server details out of `AGENTS.md`.
@@ -143,4 +146,4 @@ Before finishing, verify that:
 - Applicable convention outcomes have project-owned evidence or an explicitly approved deviation.
 - Existing administrative files retain their useful content.
 
-Report the files created or changed, the user choices encoded, the Project Guardrails established, and the lazy artifacts left for later. Recommend the next route without starting production implementation: `map-decisions` when the proposed work or its Milestone boundaries remain unclear, or an accepted Milestone still holds unresolved decisions, `grill` for unresolved branches in a concrete design, `write-issues` when tracking would help, or `implement` when the user tells the agent to build a specific piece.
+Report the files created or changed, the user choices encoded, the Project Guardrails established, and the lazy artifacts left for later. Recommend the next route without starting production implementation: `map-decisions` when the proposed work or its Milestone boundaries remain unclear, or an accepted Milestone still holds unresolved decisions, `grill` for unresolved branches in a concrete design, `write-issues` when tracking would help, or `build` (end to end) or `implement` when the user tells the agent to build a specific piece.

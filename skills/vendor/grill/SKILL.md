@@ -1,6 +1,7 @@
 ---
 name: grill
 description: Run a Grilling Session over a plan, decision, or open question, developing options where none exist yet and stress-testing them where they do, through a round-based design-tree interview. Use when the user asks to grill, or to resolve a mapped decision branch. Do not use for ordinary implementation, code review, or broad project intake.
+license: MIT
 ---
 
 # Grill
@@ -132,3 +133,7 @@ Complete the grilling session when:
 - A grilled Feature Issue carries every accepted decision in its criteria or `Settled decisions`.
 
 End with a compact decision summary, explicit deferrals, any branches handed back to the map, doc changes, ADR candidates, and the next recommended action. Return to `map-decisions` when other mapped branches remain, or when a handed-back branch needs to be minted onto the map. Suggest `write-issues` when the settled scope is ready to become Feature Issues. When a grilled Feature Issue has no open decisions left, say so; building still waits for the user's go-ahead.
+
+## Credit
+
+Parts of this file adapt text from [Matt Pocock's skills repository](https://github.com/mattpocock/skills), Copyright (c) 2026 Matt Pocock, used under the MIT License.
