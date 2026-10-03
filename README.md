@@ -42,8 +42,8 @@ left alone.
 Install Git, Node.js 22 or newer, and pnpm 11.5.2 first. Clone this repository into a permanent location:
 
 ```sh
-git clone git@github.com:bjardon/dotfiles.git ~/Documents/Experiments/dotfiles
-cd ~/Documents/Experiments/dotfiles
+git clone git@github.com:bjardon/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 pnpm install --frozen-lockfile
 pnpm run check
 pnpm run skills install
