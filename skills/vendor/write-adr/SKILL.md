@@ -1,6 +1,7 @@
 ---
 name: write-adr
 description: Write an ADR for a durable architecture choice. Use when the decision is hard to reverse, surprising without context, and based on a real trade-off. All three conditions must hold.
+license: MIT
 ---
 
 # Write an ADR

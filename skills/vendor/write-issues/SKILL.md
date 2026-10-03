@@ -2,6 +2,7 @@
 name: write-issues
 description: Turn accepted scope into a tree of Feature Issues in Linear, each a nested vertical slice.
 disable-model-invocation: true
+license: MIT
 ---
 
 # Write issues
@@ -97,4 +98,4 @@ Issues live in Linear, in the team and project `AGENTS.md` records by project se
 
 `Stop And Ask If` is for the coding agent that later picks up the slice. The universal pauses (product-scope changes, hard-to-reverse architecture, paid vendors, persisted-data risk, auth or secrets, broad refactors) already bind that agent through the delivery convention and `AGENTS.md`, so name only pauses unique to this slice here, and omit the section when there are none.
 
-Finish when every Feature Issue meets the rules above, any enabling `chore` blocks the first Feature Issue that needs it, every accepted outcome has one home as a vertical slice, and the tree is as shallow as the work allows. A Feature Issue is ready to build when every `blockedBy` points at done work, every decision it depends on is resolved (including open questions an ADR or Living Doc leaves about it), its acceptance criteria reflect the settled decisions, and any setup only the user can do is named. Settle slice-level choices that remain, such as routes, formats, or data shape, through `grill` or in conversation first. Route to `implement` only when the user tells you to build the issue. Creating or accepting the issue is not that go-ahead.
+Finish when every Feature Issue meets the rules above, any enabling `chore` blocks the first Feature Issue that needs it, every accepted outcome has one home as a vertical slice, and the tree is as shallow as the work allows. A Feature Issue is ready to build when every `blockedBy` points at done work, every decision it depends on is resolved (including open questions an ADR or Living Doc leaves about it), its acceptance criteria reflect the settled decisions, and any setup only the user can do is named. Settle slice-level choices that remain, such as routes, formats, or data shape, through `grill` or in conversation first. Route to `build` or `implement` only when the user tells you to build the issue. Creating or accepting the issue is not that go-ahead.

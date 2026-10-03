@@ -5,13 +5,13 @@ This is the personal Mac skill selection. Fleet manages Linux profiles separatel
 Selected upstream skills live in `vendor/`, with their source repository, exact
 commit, upstream directory tree hash, and license recorded in `manifest.json`.
 Copies include supporting files. The original seven revisions match the previous skills.sh
-lockfile and were checked against installed files before import. The twelve
+lockfile and were checked against installed files before import. The sixteen
 SynoraStudio skills and two personal skills were imported directly from pinned
 upstream commits. Licenses live in `licenses/`. Personal skills come from
 `bjardon/skills`. Record upstream licensing accurately.
-SynoraStudio and `bjardon/skills` were explicitly requested despite having no
-declared license; `NOASSERTION` and their provenance notes record that status
-without granting rights.
+SynoraStudio skills use their upstream MIT license. `bjardon/skills` was
+explicitly requested despite having no declared license; `NOASSERTION` and its
+provenance note record that status without granting rights.
 
 The installer links these copies into `~/.agents/skills` and `~/.claude/skills`,
 matching the shared and Claude layout used on this Mac. It does not install the

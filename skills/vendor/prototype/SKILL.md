@@ -1,6 +1,7 @@
 ---
 name: prototype
 description: Build a throwaway Prototype that answers one design question. Use when the user explicitly asks to prototype, compare UI variants, or test uncertain logic, state, workflow, or data before production. Do not use for ordinary production implementation.
+license: MIT
 ---
 
 # Prototype
@@ -36,3 +37,7 @@ Before deleting or absorbing the prototype, capture:
 Do not leave unexplained prototype code in the repo.
 
 Finish when the prototype has produced a verdict, the verdict is recorded in the smallest relevant artifact, and no unexplained prototype code remains.
+
+## Credit
+
+Parts of this file adapt text from [Matt Pocock's skills repository](https://github.com/mattpocock/skills), Copyright (c) 2026 Matt Pocock, used under the MIT License.

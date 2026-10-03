@@ -1,6 +1,7 @@
 ---
 name: maintain-living-docs
 description: Maintain Living Docs without creating sprawl. Use when working on architecture, onboarding, operations, project guides, or implementation that changes durable system knowledge. Use narrower skills for vocabulary, decisions, issues, and handoffs.
+license: MIT
 ---
 
 # Maintain living docs
