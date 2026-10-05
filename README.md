@@ -13,6 +13,8 @@ Each configuration area keeps its own files and restore steps.
 - [Skills](#skills). Vendored agent skills, symlinked into place by an installer.
 - [Global agent instructions](agents/README.md). Personal Codex `AGENTS.md` and
   Claude Code `CLAUDE.md` files, with a preview and backup installer.
+- [SSH hosts](ssh/README.md). The `devbox` and `oxpbox` aliases, included from
+  `~/.ssh/config`.
 
 ## Skills
 
@@ -120,3 +122,16 @@ This links shared instructions into `~/.agents/AGENTS.md`, with an additional
 and adds Claude-specific instructions.
 Existing items are backed up before replacement. Start new agent sessions after
 applying. Restore skills too so Claude can use `unslop`.
+
+## Restoring SSH hosts
+
+After `pnpm install --frozen-lockfile`, follow the [SSH hosts guide](ssh/README.md):
+
+```sh
+pnpm run ssh install
+pnpm run ssh install --apply
+```
+
+This links `~/.ssh/config.d/devbox.conf` and adds an `Include` for it at the top
+of `~/.ssh/config`, backing up the existing config first. Other hosts in
+`~/.ssh/config` stay unmanaged.
