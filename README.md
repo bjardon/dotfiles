@@ -15,6 +15,8 @@ Each configuration area keeps its own files and restore steps.
   Claude Code `CLAUDE.md` files, with a preview and backup installer.
 - [SSH hosts](ssh/README.md). The `devbox` and `oxpbox` aliases, included from
   `~/.ssh/config`.
+- [Zsh](zsh/README.md). `~/.zshenv`, `~/.zprofile`, and `~/.zshrc`, with Oh My
+  Zsh pinned to a commit.
 
 ## Skills
 
@@ -135,3 +137,16 @@ pnpm run ssh install --apply
 This links `~/.ssh/config.d/devbox.conf` and adds an `Include` for it at the top
 of `~/.ssh/config`, backing up the existing config first. Other hosts in
 `~/.ssh/config` stay unmanaged.
+
+## Restoring zsh
+
+After `pnpm install --frozen-lockfile`, follow the [zsh guide](zsh/README.md). It
+clones Oh My Zsh at a pinned commit, then:
+
+```sh
+pnpm run zsh install
+pnpm run zsh install --apply
+```
+
+This links `~/.zshenv`, `~/.zprofile`, and `~/.zshrc` into this checkout, backing
+up the existing files first. Shell history stays local.
