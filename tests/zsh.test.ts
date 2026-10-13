@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import * as fs from 'node:fs';
 import path from 'node:path';
 import { tmpdir } from 'node:os';
+import { execFileSync } from 'node:child_process';
 import { ROOT, install, verify, type InstallOptions } from '../scripts/zsh.ts';
 
 function fixture(t: TestContext) {
@@ -88,4 +89,33 @@ test('zsh restore validates all source files before writing', t => {
   fs.unlinkSync(path.join(root, 'zsh/zprofile'));
   assert.throws(() => run(), /ENOENT/);
   assert.deepEqual(fs.readdirSync(home), []);
+});
+
+test('zsh restore reports Oh My Zsh missing, matching, or drifted from the pin', t => {
+  const { root, home, run } = fixture(t);
+  const messages: string[] = [];
+  const log = (message: string) => { messages.push(message); };
+  run({ apply: false, log });
+  assert.ok(messages.some(message => message.startsWith('missing') && message.includes('.oh-my-zsh')));
+
+  const omz = path.join(home, '.oh-my-zsh');
+  const git = (...args: string[]) => execFileSync('git', ['-C', omz, '-c', 'user.name=test', '-c', 'user.email=test@example.com', ...args], { encoding: 'utf8' }).trim();
+  fs.mkdirSync(omz);
+  git('init', '-q');
+  git('commit', '-q', '--allow-empty', '-m', 'pinned');
+  fs.writeFileSync(path.join(root, 'zsh/oh-my-zsh-commit'), `${git('rev-parse', 'HEAD')}\n`);
+  messages.length = 0;
+  run({ apply: false, log });
+  assert.ok(!messages.some(message => /^(missing|drift)/.test(message)));
+
+  git('commit', '-q', '--allow-empty', '-m', 'updated');
+  messages.length = 0;
+  run({ apply: false, log });
+  assert.ok(messages.some(message => message.startsWith('drift')));
+});
+
+test('zsh check rejects a malformed Oh My Zsh pin', t => {
+  const { root } = fixture(t);
+  fs.writeFileSync(path.join(root, 'zsh/oh-my-zsh-commit'), 'master\n');
+  assert.throws(() => verify(root), /full commit hash/);
 });

@@ -25,7 +25,29 @@ export interface InstallOptions {
   link?: (source: string, dest: string, type: 'file') => void;
 }
 
+export function pinnedOhMyZsh(root = ROOT): string {
+  const commit = fs.readFileSync(path.join(root, 'zsh/oh-my-zsh-commit'), 'utf8').trim();
+  if (!/^[0-9a-f]{40}$/.test(commit)) throw new Error(`zsh/oh-my-zsh-commit must hold a full commit hash, got: ${commit}`);
+  return commit;
+}
+
+// Reports how ~/.oh-my-zsh compares with the pin. It never clones or updates;
+// the README restore steps do that by hand.
+export function checkOhMyZsh(root: string, home: string, log: (message: string) => void): 'ok' | 'missing' | 'drift' {
+  const commit = pinnedOhMyZsh(root);
+  const dir = path.join(home, '.oh-my-zsh');
+  if (!fs.existsSync(dir)) {
+    log(`missing ${dir}: clone Oh My Zsh at ${commit}, see zsh/README.md`);
+    return 'missing';
+  }
+  const head = execFileSync('git', ['-C', dir, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+  if (head === commit) return 'ok';
+  log(`drift   ${dir} is at ${head}, zsh/oh-my-zsh-commit pins ${commit}`);
+  return 'drift';
+}
+
 export function verify(root = ROOT): void {
+  pinnedOhMyZsh(root);
   for (const [name] of targets) {
     const source = path.join(root, 'zsh', name);
     if (!fs.statSync(source).isFile()) throw new Error(`Expected zsh startup file: ${source}`);
@@ -98,6 +120,7 @@ export function install(root: string, home: string, { apply = false, log = conso
       throw error;
     }
   }
+  checkOhMyZsh(root, home, log);
   return actions;
 }
 

@@ -140,8 +140,8 @@ of `~/.ssh/config`, backing up the existing config first. Other hosts in
 
 ## Restoring zsh
 
-After `pnpm install --frozen-lockfile`, follow the [zsh guide](zsh/README.md). It
-clones Oh My Zsh at a pinned commit, then:
+After `pnpm install --frozen-lockfile`, follow the [zsh guide](zsh/README.md). Clone
+Oh My Zsh at the commit in `zsh/oh-my-zsh-commit`, then:
 
 ```sh
 pnpm run zsh install

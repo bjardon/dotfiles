@@ -21,16 +21,31 @@ fresh Mac gets a working shell before everything is installed.
 `zshrc` loads [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) with the
 `af-magic` theme and the `git` plugin. This repository doesn't vendor Oh My Zsh.
 It's thousands of files and only one theme and one plugin are in use. Instead,
-the restore steps pin the commit this Mac runs:
+[`oh-my-zsh-commit`](oh-my-zsh-commit) pins the commit to run.
+
+`zshrc` turns off Oh My Zsh's automatic updates, so the checkout only moves when
+I update it. `pnpm run zsh install` compares `~/.oh-my-zsh` with the pin and
+prints a `missing` or `drift` line when they differ. It never clones or updates
+Oh My Zsh itself.
+
+To install it on a new Mac, run this from the repository root:
 
 ```sh
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git -C ~/.oh-my-zsh checkout 60c9a7a839b790cd905d0fd4419435124fd1bdc0
+git -C ~/.oh-my-zsh reset --hard "$(cat zsh/oh-my-zsh-commit)"
 ```
 
-Oh My Zsh updates itself by default. If it does, update the commit above to
-match `git -C ~/.oh-my-zsh rev-parse HEAD`. `~/.oh-my-zsh/custom` holds only
-the stock examples; anything added there would need to move into this area.
+Use `reset --hard` on `master`, not `checkout <commit>`. On a detached HEAD,
+`omz update` updates `master` and then switches back to the old commit.
+
+To update, run `omz update`, then record the new commit and commit the change:
+
+```sh
+git -C ~/.oh-my-zsh rev-parse HEAD > zsh/oh-my-zsh-commit
+```
+
+`~/.oh-my-zsh/custom` holds only the stock examples. Anything added there would
+need to move into this area.
 
 ## Restore
 
@@ -78,7 +93,7 @@ automatically.
 
 ## Checks
 
-`pnpm run check` parses each file with `zsh -n` and rejects literal `/Users/`
-paths. `pnpm test` runs the installer against temporary homes, covering previews,
+`pnpm run check` parses each file with `zsh -n`, rejects literal `/Users/`
+paths, and requires a full commit hash in `oh-my-zsh-commit`. `pnpm test` runs the installer against temporary homes, covering previews,
 backups, repeat runs, and failures. For a separate preview, use
 `pnpm run zsh install --home /path/to/existing/test-home`.
