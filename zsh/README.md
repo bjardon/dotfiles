@@ -61,8 +61,8 @@ pnpm run zsh install --apply
 The first install command previews changes. Applying symlinks the three files
 into your home directory. Existing files, directories, and conflicting or broken
 links move to `~/.local/state/dotfiles/backups/<run-id>/`. Correct links stay
-untouched on repeat runs. If creating a link fails, the installer puts the
-original file back. Open a new terminal after applying.
+untouched on repeat runs. If creating any link fails, the installer removes the
+links it made in that run and puts the original files back. Open a new terminal after applying.
 
 Keep this checkout in a permanent location, because the installed links point
 into it.

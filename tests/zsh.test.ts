@@ -61,6 +61,21 @@ test('zsh link failure restores the original file', t => {
   assert.equal(fs.readFileSync(dest, 'utf8'), 'original');
 });
 
+test('zsh link failure on a later file rolls back the earlier links', t => {
+  const { home, run } = fixture(t);
+  fs.writeFileSync(path.join(home, '.zshenv'), 'original env');
+  let calls = 0;
+  const link = (source: string, dest: string, type: 'file') => {
+    if (++calls === 3) throw new Error('link failed');
+    fs.symlinkSync(source, dest, type);
+  };
+  assert.throws(() => run({ link }), /link failed/);
+  assert.equal(fs.readFileSync(path.join(home, '.zshenv'), 'utf8'), 'original env');
+  assert.ok(!fs.lstatSync(path.join(home, '.zshenv')).isSymbolicLink());
+  assert.equal(fs.existsSync(path.join(home, '.zprofile')), false);
+  assert.equal(fs.existsSync(path.join(home, '.zshrc')), false);
+});
+
 test('zsh restore rejects a linked .local before writing', t => {
   const { temp, home, run } = fixture(t);
   const outside = path.join(temp, 'outside');
@@ -112,6 +127,15 @@ test('zsh restore reports Oh My Zsh missing, matching, or drifted from the pin',
   messages.length = 0;
   run({ apply: false, log });
   assert.ok(messages.some(message => message.startsWith('drift')));
+});
+
+test('zsh restore treats a non-Git ~/.oh-my-zsh as drift and still links', t => {
+  const { home, run } = fixture(t);
+  fs.mkdirSync(path.join(home, '.oh-my-zsh'));
+  const messages: string[] = [];
+  const actions = run({ log: message => { messages.push(message); } });
+  assert.ok(messages.some(message => message.startsWith('drift') && message.includes('not a Git checkout')));
+  assert.ok(actions.every(action => fs.lstatSync(action.dest).isSymbolicLink()));
 });
 
 test('zsh check rejects a malformed Oh My Zsh pin', t => {

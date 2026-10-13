@@ -31,6 +31,13 @@ export function pinnedOhMyZsh(root = ROOT): string {
   return commit;
 }
 
+function gitHead(dir: string): string | undefined {
+  // Without its own .git, rev-parse would report an enclosing repository's HEAD.
+  if (!fs.existsSync(path.join(dir, '.git'))) return undefined;
+  try { return execFileSync('git', ['-C', dir, 'rev-parse', 'HEAD'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim(); }
+  catch { return undefined; }
+}
+
 // Reports how ~/.oh-my-zsh compares with the pin. It never clones or updates;
 // the README restore steps do that by hand.
 export function checkOhMyZsh(root: string, home: string, log: (message: string) => void): 'ok' | 'missing' | 'drift' {
@@ -40,7 +47,11 @@ export function checkOhMyZsh(root: string, home: string, log: (message: string) 
     log(`missing ${dir}: clone Oh My Zsh at ${commit}, see zsh/README.md`);
     return 'missing';
   }
-  const head = execFileSync('git', ['-C', dir, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+  const head = gitHead(dir);
+  if (!head) {
+    log(`drift   ${dir} is not a Git checkout, zsh/oh-my-zsh-commit pins ${commit}`);
+    return 'drift';
+  }
   if (head === commit) return 'ok';
   log(`drift   ${dir} is at ${head}, zsh/oh-my-zsh-commit pins ${commit}`);
   return 'drift';
@@ -103,6 +114,8 @@ export function install(root: string, home: string, { apply = false, log = conso
   const backupRoot = path.join(home, '.local/state/dotfiles/backups', randomUUID().replaceAll('-', ''));
   // Validate all destination and backup parents before the first write.
   for (const { dest } of actions) safeParents(path.join(backupRoot, path.relative(home, dest)), home);
+  // The three files depend on each other, so a failed link undoes the whole run.
+  const done: { dest: string; backup: string | undefined }[] = [];
   for (const { status, source, dest } of actions) {
     log(`${status.padEnd(7)} ${dest} -> ${source}`);
     if (!apply || status === 'ok') continue;
@@ -114,9 +127,15 @@ export function install(root: string, home: string, { apply = false, log = conso
       fs.renameSync(dest, backup);
       log(`backup  ${backup}`);
     }
-    try { link(source, dest, 'file'); }
-    catch (error) {
+    try {
+      link(source, dest, 'file');
+      done.push({ dest, backup });
+    } catch (error) {
       if (backup) fs.renameSync(backup, dest);
+      for (const previous of done.reverse()) {
+        fs.unlinkSync(previous.dest);
+        if (previous.backup) fs.renameSync(previous.backup, previous.dest);
+      }
       throw error;
     }
   }
