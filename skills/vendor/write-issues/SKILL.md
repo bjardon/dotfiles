@@ -27,6 +27,10 @@ Nest the same way `map-decisions` nests: prefer shallow trees, and split a featu
 
 Sequence with dependencies, not nesting. Record each dependency as a Linear `blockedBy` relation, so the order is visible. Linear does not hold a dependent issue closed on its own; the order you build them in honors the sequence. Issue nesting does not prescribe branches or pull-request targets.
 
+A `related` link records association, never order, so a dependency is always `blockedBy`. An issue added to a tree that already exists gets its relations when you create it: `blockedBy` on the issues it needs, and `blocks` on the issues that need it.
+
+When a slice needs work from another project, such as client work waiting on internal tooling, find or create that issue in its own project and record the `blockedBy` across projects now. Nothing later infers a cross-project dependency. Several projects can share one Linear team, so confirm each issue's project before relating it.
+
 ## Aim to verify by using it
 
 Aim for each slice to be verifiable by running the project and using the behavior it adds, however that project runs (a local dev server, a deployed preview, a CLI). Some slices are exercised directly; others by triggering the behavior and checking its effect, such as an email notification landing in the inbox. Keep each slice small enough to exercise on its own, and do not drop that aim for a slice that could meet it.
@@ -43,6 +47,8 @@ Not all tracked work is a feature, and decisions are not folded into Feature Iss
 4. Mark assumptions, and set dependencies in dependency order as Linear `blockedBy` relations.
 5. Read the Linear team and project from `AGENTS.md`, where project setup has already recorded them.
 6. Draft issues there: each Feature Issue and Sub-Issue with the `type: feature` label, and any enabling work with the `type: chore` label and a `blockedBy` from the first Feature Issue needing it. Check each Feature Issue against the rules below.
+7. When `AGENTS.md` records the project as a Client Engagement, close each Milestone with an Acceptance Issue (see [Client Engagements](#client-engagements)).
+8. Run `reconcile-tracker` on the project to catch relations the session missed and post the project status update.
 
 ## Issue rules
 
@@ -94,8 +100,14 @@ The user-recognizable or system-owner-visible behavior this slice delivers, acro
 
 Issues live in Linear, in the team and project `AGENTS.md` records by project setup (`init-agent-os` or `adopt-project`), so an issue id resolves without repeating where it lives. If the team or project is missing, that is a setup gap: route back to `init-agent-os` or `adopt-project` rather than choosing it here. If `AGENTS.md` records a different tracker for this project (a client exception), write issues there instead, following that tracker's equivalent conventions. Give every Feature Issue the `type: feature` label, and assign it explicitly to each Sub-Issue too, since Linear does not inherit labels from a parent.
 
+## Client Engagements
+
+In a Client Engagement, each Milestone is a deliverable the client accepts. End it with an Acceptance Issue: a `type: chore` issue titled for the deliverable's acceptance, which the user closes when the client accepts it. Its body holds the delivery notes and the operational checklist the Milestone leaves, such as a live API key the client must provide or a setup step on the client's infrastructure. Make the next Milestone's first issues `blockedBy` it, so the next deliverable waits for acceptance.
+
+Client revisions enter as reports in Triage. When the user accepts one into the open Milestone, it blocks that Milestone's Acceptance Issue.
+
 ## Stop-and-ask intent
 
 `Stop And Ask If` is for the coding agent that later picks up the slice. The universal pauses (product-scope changes, hard-to-reverse architecture, paid vendors, persisted-data risk, auth or secrets, broad refactors) already bind that agent through the delivery convention and `AGENTS.md`, so name only pauses unique to this slice here, and omit the section when there are none.
 
-Finish when every Feature Issue meets the rules above, any enabling `chore` blocks the first Feature Issue that needs it, every accepted outcome has one home as a vertical slice, and the tree is as shallow as the work allows. A Feature Issue is ready to build when every `blockedBy` points at done work, every decision it depends on is resolved (including open questions an ADR or Living Doc leaves about it), its acceptance criteria reflect the settled decisions, and any setup only the user can do is named. Settle slice-level choices that remain, such as routes, formats, or data shape, through `grill` or in conversation first. Route to `build` or `implement` only when the user tells you to build the issue. Creating or accepting the issue is not that go-ahead.
+Finish when every Feature Issue meets the rules above, any enabling `chore` blocks the first Feature Issue that needs it, every accepted outcome has one home as a vertical slice, the tree is as shallow as the work allows, each Client Engagement Milestone ends with an Acceptance Issue, and `reconcile-tracker` has run. A Feature Issue is ready to build when every `blockedBy` points at done work, every decision it depends on is resolved (including open questions an ADR or Living Doc leaves about it), its acceptance criteria reflect the settled decisions, and any setup only the user can do is named. Settle slice-level choices that remain, such as routes, formats, or data shape, through `grill` or in conversation first. Route to `build` or `implement` only when the user tells you to build the issue. Creating or accepting the issue is not that go-ahead.

@@ -36,6 +36,8 @@ Before deleting or absorbing the prototype, capture:
 
 Do not leave unexplained prototype code in the repo.
 
+When the verdict lands in a tracker issue and the session does not return to `map-decisions`, run `reconcile-tracker` on the project.
+
 Finish when the prototype has produced a verdict, the verdict is recorded in the smallest relevant artifact, and no unexplained prototype code remains.
 
 ## Credit
