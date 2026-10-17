@@ -6,15 +6,17 @@ license: MIT
 
 # Babysit a pull request
 
-Bring a pull request to green: every required check passing and every review-bot finding fixed or answered. The user should arrive at a pull request that only needs their judgment.
+Bring a pull request to green: every pre-review check passing and every finding from them fixed or answered. The user should arrive at a pull request that only needs their judgment.
 
 ## Find the pull request
 
-Use the pull request the user names, or the one open for the current branch. Read its description, its acceptance criteria source, Agent Guidance, and the Project Recipes it points to, usually `docs/verification.md` and `docs/coding-standards.md`.
+Use the pull request the user names, or the one open for the current branch. Read its description, its acceptance criteria source, Agent Guidance, and the Project Recipes it points to, usually `docs/verification.md`, `docs/coding-standards.md`, and `docs/ci.md`.
+
+The CI recipe sorts each check and review bot into a phase. Pre-review checks run on draft pull requests and are yours to get green. Review checks run only once the pull request is ready, such as a bot that approves pull requests automatically, and belong to the user's review: report their results with the human comments and leave them for the user. Without the recipe, treat what runs on a draft as pre-review.
 
 ## Wait for results
 
-Wait until the required checks finish and the project's review bots have posted. Use whatever the client offers: a background watcher, notifications, or polling with growing intervals. Set no time limit of your own. A hung job ends when the CI system's own timeout fails it.
+Wait until the pre-review checks finish and the review bots that run on drafts have posted. Use whatever the client offers: a background watcher, notifications, or polling with growing intervals. Set no time limit of your own. A hung job ends when the CI system's own timeout fails it.
 
 ## Fix failing checks
 
@@ -44,11 +46,11 @@ Comments from people are for the user. Leave them unanswered and list them in th
 
 ## Mark it ready
 
-When every required check passes and every bot finding is fixed or answered:
+When every pre-review check passes and every finding from them is fixed or answered:
 
 - Add the fixes you made after the pull request opened to its description's Delivery record. Keep what the review loop already recorded there: rounds, Findings fixed by tier and severity, escalations, and deferred nits. When the description has no Delivery record, add one listing only your fixes.
 - Mark a draft pull request ready for review when the user asked for end-to-end delivery or asked you to, unless its delivery review loop escalated. Otherwise leave its state alone.
 
 ## Finish
 
-Finish when the pull request is green with every bot finding fixed or answered, or when you stop at the attempt limit, a returning finding, or an escalation. A required check that also fails on the base branch blocks green without being yours to fix: once everything else is green or answered, finish, leave the pull request's state alone, and report that check as the blocker. Report the checks fixed, flaky checks, pre-existing failures, bot findings fixed and answered, human comments waiting for the user, and whether the pull request is ready.
+Finish when the pull request is green with every finding fixed or answered, or when you stop at the attempt limit, a returning finding, or an escalation. A pre-review check that also fails on the base branch blocks green without being yours to fix: once everything else is green or answered, finish, leave the pull request's state alone, and report that check as the blocker. When you stop short of green with the pull request still a draft, post a comment on it saying why and what you need from the user, marked as agent-authored. Report the checks fixed, flaky checks, pre-existing failures, bot findings fixed and answered, human comments waiting for the user, and whether the pull request is ready.

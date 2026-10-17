@@ -132,7 +132,7 @@ Complete the grilling session when:
 - Each remaining uncertainty has an owner or a named next workflow.
 - A grilled Feature Issue carries every accepted decision in its criteria or `Settled decisions`.
 
-End with a compact decision summary, explicit deferrals, any branches handed back to the map, doc changes, ADR candidates, and the next recommended action. Return to `map-decisions` when other mapped branches remain, or when a handed-back branch needs to be minted onto the map. Suggest `write-issues` when the settled scope is ready to become Feature Issues. When a grilled Feature Issue has no open decisions left, say so; building still waits for the user's go-ahead.
+End with a compact decision summary, explicit deferrals, any branches handed back to the map, doc changes, ADR candidates, and the next recommended action. Return to `map-decisions` when other mapped branches remain, or when a handed-back branch needs to be minted onto the map. Suggest `write-issues` when the settled scope is ready to become Feature Issues. When the session wrote to the tracker, such as a Decision Issue, a Decision Map, a Feature Issue, or a spin-off, and does not return to `map-decisions`, run `reconcile-tracker` on the project before ending. When a grilled Feature Issue has no open decisions left, say so; building still waits for the user's go-ahead.
 
 ## Credit
 

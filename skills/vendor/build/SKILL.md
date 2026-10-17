@@ -11,11 +11,11 @@ Take one piece the user named from go-ahead to a pull request that is green, ind
 
 ## Start
 
-Invoking this Skill with a named piece, such as a Feature Issue id or scope agreed in conversation, is the user's go-ahead to build it end to end. That go-ahead authorizes moving the issue to In Progress, committing, pushing a branch, opening a pull request, fixing its checks and review-bot findings, and marking it ready for review. Merging stays with the user. Without a named piece, ask which one to build.
+Invoking this Skill with a named piece, such as a Feature Issue id or scope agreed in conversation, is the user's go-ahead to build it end to end. That go-ahead authorizes moving the issue to In Progress and commenting where the work lives, committing, pushing a branch, opening a draft pull request, fixing its pre-review checks and review-bot findings, and marking it ready for review. Merging stays with the user. Without a named piece, ask which one to build.
 
 Check readiness: every `blockedBy` points at done work, every decision it depends on is resolved, its acceptance criteria are written down and reflect those decisions, and setup only the user can do is named. Name any condition that fails and pause until it is fixed or the user says to build anyway.
 
-Then move the issue to In Progress and create the piece's branch from the project's integration branch. Change no other issue status by hand. Later transitions come from tracker automation.
+Then move the issue to In Progress and create the piece's branch from the project's integration branch. Leave one comment on the issue saying where the work lives: the branch, and the machine or session when you know them. Edit that comment as the work moves instead of adding new ones, and stop once the pull request is linked. Change no other issue status by hand. Later transitions come from tracker automation, and reconciliation at [Finish](#finish).
 
 ## Run the steps
 
@@ -41,13 +41,13 @@ An escalated loop still publishes, as a draft, so the user sees the state of the
 For each routed Finding, record a Guardrail Candidate in the home for its route:
 
 - `check` and `project convention` go to the project's tracker.
-- `playbook convention` goes to the Engineering Playbook's tracker when Agent Guidance or the user names it. Describe the general pattern with no client names, client code, or client paths, and link the pull request only when it belongs to a SynoraStudio-owned repository. When the playbook's tracker is unknown, list the candidate in the pull request for the user instead.
+- `playbook convention` goes to the `Engineering Playbook` project on Linear's `SYNO` team. Describe the general pattern with no client names, client code, or client paths, and link the pull request only when it belongs to a SynoraStudio-owned repository. When you cannot reach that project, list the candidate in the pull request for the user instead.
 
-Search the home for an existing candidate describing the same pattern first. On a match, comment the new occurrence on it. Otherwise create a `type: guardrail` issue. Mark each issue and comment visibly as agent-authored.
+Search the home for an existing candidate describing the same pattern first. On a match, comment the new occurrence on it. Otherwise create a `type: guardrail` issue in the team's Triage state, describing the symptom the Finding caught, and leave its priority to the user. Mark each issue and comment visibly as agent-authored.
 
 ## Publish
 
-Commit following the project's commit convention, with the agent as co-author, and push. Open the pull request as a draft. Open it ready for review instead only when the loop ended clean and the project's review bot skips drafts. An escalated or unreviewed loop always opens a draft. Follow the project's pull request template, and make sure the description has:
+Commit following the project's commit convention, with the agent as co-author, and push. Open the pull request as a draft, or push to the draft you opened earlier, for example to get a preview deployment. A draft tells the user you still owe work on it, so it stays one until Watch marks it ready. Follow the project's pull request template, and make sure the description has:
 
 - **Summary**: what changed, linking the issue, Decision Issue, or ADR that holds the reasoning.
 - **Diagram**: a Mermaid diagram, only when the change adds or changes a boundary, a data flow, or a state transition.
@@ -60,16 +60,24 @@ End it with the issue reference, closing only when this pull request completes t
 
 ## Watch
 
+Start Watch as soon as the pull request is open, in the same run. The go-ahead already covers it, so carry on without asking, even when no checks have registered yet.
+
+Read the project's CI Project Recipe, usually `docs/ci.md`. It sorts each check and review bot into a phase. Pre-review checks run on drafts and are yours to get green. Review checks run only once the pull request is ready, such as a bot that approves pull requests automatically, and belong to the user. Without the recipe, treat what runs on the draft as pre-review.
+
 Run `babysit` on the pull request. Without it, watch the pull request yourself:
 
-- Wait for required checks and review bots by whatever means the client offers, with no time limit of your own.
+- Wait for pre-review checks and review bots that run on drafts by whatever means the client offers, with no time limit of your own.
 - Fix failures the change caused and blocking or should-fix bot findings, verifying each fix locally before pushing. Never weaken, skip, or delete a check. Rerun a suspected flaky check once, then report it. Report a failure that also happens on the base branch instead of fixing it.
 - Reply on every bot thread with what changed or why nothing did, marked as agent-authored. Leave comments from people for the user.
 - Stop and report after five fix attempts, or when a fixed finding comes back.
 - Add your fixes to the Delivery record, keeping the loop's entries.
 
-Mark the pull request ready for review once it is green and every bot finding is fixed or answered. An escalated loop stays a draft.
+Mark the pull request ready for review once every pre-review check passes and every finding from them is fixed or answered. An escalated loop stays a draft.
+
+When you stop with the pull request still a draft, post a comment on it saying why and what you need from the user, marked as agent-authored. An escalated loop already says so in the description.
 
 ## Finish
 
-Finish when the pull request is ready for the user's review, or when the loop or `babysit` stopped and the user knows why. Report the pull request, the review rounds and their outcome, any escalation waiting on the user, the Guardrail Candidates recorded, and acceptance criteria the user still needs to check by hand.
+Run `reconcile-tracker` on the project, whether the pull request went ready or stayed a draft. It corrects the relations and status the evidence settles, raises judgments with the user, and posts the project status update. Without it, post a Linear project status update yourself when anything changed: what landed, what is open in review, the issues whose every `blockedBy` is done, and what waits on the user.
+
+Finish when the pull request is ready for the user's review, or when the loop or `babysit` stopped and the pull request says why, and the tracker is reconciled. Report the pull request, the review rounds and their outcome, any escalation waiting on the user, the Guardrail Candidates recorded, acceptance criteria the user still needs to check by hand, and what reconciliation corrected or left waiting on the user.

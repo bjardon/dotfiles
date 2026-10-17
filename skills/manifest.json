@@ -140,33 +140,33 @@
     {
       "name": "adopt-project",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/adopt-project",
-      "tree": "093f035855672cee5b2f469007d18450a0840530",
+      "tree": "8c95438c7d3f2624c4784ca14a09014f0b3df846",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "22528316e8dc4f3219b4c1d1d125d80220f1df098fe86eecc11680fdc4c83ee3",
+        "SKILL.md": "8a302dcbf97d2ec141279f7b1add7e63dcca57286f9a24879fa15fbd45640c0c",
         "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
       }
     },
     {
       "name": "grill",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/grill",
-      "tree": "b756fcbce110930b45c2c310f00a8a7fdcdc9e89",
+      "tree": "c20f00c4ce9784f32524f8fcc8f804814663c374",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "1c1e69e027cea7d312a22b8ed597cc1d5746a4f473502a487c3739ae9c256d4b",
+        "SKILL.md": "dac74b0e7aff1f22aa3b36d0c1cbd1d249ef6c1ec2a65b8b766d706bb98e3879",
         "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
       }
     },
     {
       "name": "handoff",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/handoff",
       "tree": "3bf439ea9f9199b72cee1054aeb62bd5f73099e1",
       "license": "MIT",
@@ -179,35 +179,35 @@
     {
       "name": "implement",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/implement",
-      "tree": "15bfda0fe7015a6e2ea4e90b032af0fb0a42b036",
+      "tree": "2b66c40e24eb1603b9b9c46c533b1c1e6e4b39ac",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "c30b546133c74e3ed60ea8d6ea53fea12385045c164ae39e263a34ec85ab4c66",
+        "SKILL.md": "f16c994b54efa2a05958ae24f71c94bcb959e148158eb9cd1c55b9dbe0523409",
         "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
       }
     },
     {
       "name": "init-agent-os",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/init-agent-os",
-      "tree": "f7fdc3b6ec97c2770a679b8c4870d8c0f5f1d3ef",
+      "tree": "9bf6dde281b6dee9097343377d70b8f207bb7ca5",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "AGENTS-TEMPLATE.md": "37b39f38f36c82753f7ff786177f460a5df789dbf6130368205edcb1d9650047",
+        "AGENTS-TEMPLATE.md": "5ae5981c8b3302ca6fbd354d4c3ef46d5c92aca88925091be8857e263c14673f",
         "PR-TEMPLATE.md": "708c8b98277c6b8e6a4560b55991656c12bf6bb40cf5dac5c559f5aef5c683c4",
-        "SKILL.md": "0ef867669c13ae034d63112f2df668344a81d40200e8ee412e055c1f59d3f2e0",
+        "SKILL.md": "75a0dbdcf0ade19461d06b3a49d08150f0e7f6d2dc7ed172fa1d90353e7ccf1b",
         "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
       }
     },
     {
       "name": "intake",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/intake",
       "tree": "2061d3a4a7f25f6c7c2ae3e93c8835315b74d86c",
       "license": "MIT",
@@ -220,7 +220,7 @@
     {
       "name": "maintain-language",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/maintain-language",
       "tree": "315f1792caa7f816f7ab6324f92760cc71cb4335",
       "license": "MIT",
@@ -234,7 +234,7 @@
     {
       "name": "maintain-living-docs",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/maintain-living-docs",
       "tree": "c7dbeae258d327b9d9db6770a8590cb8cdb77645",
       "license": "MIT",
@@ -247,27 +247,27 @@
     {
       "name": "map-decisions",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/map-decisions",
-      "tree": "03aa60f731c4839b47a0e54b558d0b4e701ab145",
+      "tree": "45fce37088e83f0c6602c61320c8e7ed3235cf1b",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "1c2fb413083c7348bfbfa15f66e4ac17dff10fe74415baf36982c4c7ca7c7c5d",
+        "SKILL.md": "663e895b680bbae18e5f74b2426d4d70845b5e604d824e523cd1f2fa91ffb637",
         "agents/openai.yaml": "b8daa849c7cb8861e66f88a94666a39f45122e083f2d9b749f1a456b0f6c645b"
       }
     },
     {
       "name": "prototype",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/prototype",
-      "tree": "08a8ea7c525d590656423f844ce4d03e2c057bcc",
+      "tree": "7c41edaad6e70b870dbd282205685c95a539ac71",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
         "LOGIC.md": "0d74652a4259a06f7328cac4c41a51962c78e1297b2527ab99c45d706c919a07",
-        "SKILL.md": "0248b801c6f7c869361eeda5c87a51d60b3d07d1742051ebb6e4ceed142f0405",
+        "SKILL.md": "b68bb12782cc1038a583afa7b42c5605a18c843c5abeeef8ec30373ff1de4128",
         "UI.md": "484fe150f24c25d9e9ad7640664233d49934abfef3f2d3255805acea786b8263",
         "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
       }
@@ -275,7 +275,7 @@
     {
       "name": "write-adr",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/write-adr",
       "tree": "0593edb1974f5655dda78273ce93293538bdc09a",
       "license": "MIT",
@@ -289,46 +289,46 @@
     {
       "name": "write-issues",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/write-issues",
-      "tree": "42e1ecd8ff2b57a822cebe2cf553ee87289e0277",
+      "tree": "55baf90c01969374cd8f90a73662b163bcd77f3e",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "ef001c1e37df992312c34716557292f69c18ebf9fa0927aa928d7f2ba5821e6d",
+        "SKILL.md": "8586ceae076187af591bb2aefc0e993cfbe52b1710b7236866ebf20f24d7f482",
         "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
       }
     },
     {
       "name": "babysit",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/babysit",
-      "tree": "266d2c3bb9385abb3a760f1776c94e3d716fa4d9",
+      "tree": "6abdb951ae08997ab7900656a3c8ed501d9691ff",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "3f92790e69059009a189478dc2281330f2bc6294fefaeb2c3e49fc75376b5521",
+        "SKILL.md": "fb60d5f19291251d517b538969c69601dfa37e41a46bd5cdcf1c79bcc030f862",
         "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
       }
     },
     {
       "name": "build",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/build",
-      "tree": "115ece6cadd9e29ecc54ac59f79b00c0a1bd3ef6",
+      "tree": "b1f16e2c7153adc15fd1127a3ed699423adf0d21",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
-        "SKILL.md": "48b8d6a73944b14418bf49a67bf4a8a77560c9ac929922a7341a52b582453969",
+        "SKILL.md": "062cbf3cb6c02019d91e394b9b2bbdc0caf487c01916aefe0d8923d5d0df9820",
         "agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94"
       }
     },
     {
       "name": "design-interface",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/design-interface",
       "tree": "64997af42c18d10d946fc5d1aa2d78d23c796c80",
       "license": "MIT",
@@ -341,13 +341,26 @@
     {
       "name": "review",
       "source": "https://github.com/synorastudio/eng-playbook.git",
-      "commit": "a1ee1c14fed65d5ca2b4c21ec7b826be7b3ae2c7",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
       "path": "skills/review",
       "tree": "fcf6ab60b5e952b5810c26eb5eba8be02fa6ade2",
       "license": "MIT",
       "license_file": "skills/licenses/eng-playbook.txt",
       "files": {
         "SKILL.md": "165358ae2ef6fb26a39d5ad2d7b40c09ac91c7d5a8a5fe8833a5ca39c22f97cc",
+        "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
+      }
+    },
+    {
+      "name": "reconcile-tracker",
+      "source": "https://github.com/synorastudio/eng-playbook.git",
+      "commit": "a6959e4abfaefb6b9a4f588bbc24f7d647230de6",
+      "path": "skills/reconcile-tracker",
+      "tree": "8801aa6dfb06f6783101dcb74fdaa8a1c232603c",
+      "license": "MIT",
+      "license_file": "skills/licenses/eng-playbook.txt",
+      "files": {
+        "SKILL.md": "b554de9b3951e008f6a27fee271ebbe6a5a5690ff328e71202dd014a58844fb8",
         "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
       }
     }
