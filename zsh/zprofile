@@ -1,0 +1,16 @@
+# zsh loads this file for login shells only. Terminal apps often start login
+# shells; plain `zsh -c "command"` does not. Put session-level setup here, but
+# put environment needed by scripts/tools in .zshenv.
+#
+# Oh My Zsh runs compinit from .zshrc, so completion setup lives there.
+
+# Homebrew is session setup for terminal login shells.
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# pnpm is configured in .zshenv so non-login agent/tool shells can find node,
+# pnpm, and globally installed commands like supabase.
+
+# User-level CLIs: Claude Code, Codex, Cursor, Macroscope.
+export PATH="$HOME/.local/bin:$PATH"
