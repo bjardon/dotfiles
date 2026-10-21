@@ -32,9 +32,6 @@ export PATH="$COMPOSIO_INSTALL_DIR:$PATH"
 ## General
 alias lah="ls -lah"
 
-## Claude
-alias clawxp="CLAUDE_CONFIG_DIR=~/.claude-oxp claude"
-
 # Vite+ bin (https://viteplus.dev)
 # .zshenv sources this too. Sourcing it again here moves the Vite+ bin back in
 # front of Homebrew, which .zprofile prepends, and adds `vp` completions now
