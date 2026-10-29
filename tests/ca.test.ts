@@ -120,6 +120,15 @@ test('ca reports a root as retired once macOS ships a bundle without it, until t
   assert.deepEqual(readStamp(home)?.retired, []);
 });
 
+test('ca reports a root as retired when macOS ships text identical to the filtered copy', t => {
+  const { certFile, run, replace, check, messages } = fixture(t);
+  run();
+  replace(fs.readFileSync(certFile, 'utf8'));
+  messages.length = 0;
+  check();
+  assert.ok(messages.some(m => m.includes('retired Bad Root')));
+});
+
 test('ca status is silent when the bundle is unchanged', t => {
   const { run, check, messages } = fixture(t);
   run();

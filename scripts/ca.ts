@@ -148,11 +148,13 @@ function sudoInstall(source: string, dest: string): void {
   execFileSync('sudo', ['install', '-m', '0644', '-o', 'root', '-g', 'wheel', source, dest], { stdio: 'inherit' });
 }
 
-function plan(list: Entry[], text: string, stamp: Stamp | null): Action[] {
+function plan(list: Entry[], cert: string, text: string, stamp: Stamp | null): Action[] {
   const present = new Set(blocks(text).map(block => block.sha256));
-  // A replaced file is one this script has not seen. Without a stamp there is no
-  // earlier file to compare, so an absent root may have been removed by hand.
-  const replaced = stamp !== null && stamp.sha256 !== sha256(text);
+  // A replaced file is one this script has not seen: new content, or a new inode
+  // when macOS ships text identical to our filtered copy. Without a stamp there is
+  // no earlier file to compare, so an absent root may have been removed by hand.
+  const inode = (value: string) => value.split(' ')[0];
+  const replaced = stamp !== null && (stamp.sha256 !== sha256(text) || inode(stamp.signature) !== inode(signature(cert)));
   return list.map(entry => ({
     entry,
     status: present.has(entry.sha256) ? 'remove' : replaced || stamp?.retired.includes(entry.sha256) ? 'retired' : 'ok',
@@ -173,7 +175,7 @@ export function install(root: string, home: string, { apply = false, log = conso
   home = fs.realpathSync(home);
   const list = entries(root);
   const text = fs.readFileSync(cert, 'utf8');
-  const actions = plan(list, text, readStamp(home));
+  const actions = plan(list, cert, text, readStamp(home));
   for (const { status, entry } of actions) {
     if (status === 'retired') log(retiredMessage(entry, cert));
     else log(`${status.padEnd(7)} ${entry.name} ${status === 'ok' ? `not in ${cert}` : `from ${cert} (${entry.advisory})`}`);
@@ -213,7 +215,7 @@ export function status(root: string, home: string, { log = console.log, cert = C
   home = fs.realpathSync(home);
   const stamp = readStamp(home);
   if (stamp?.signature === signature(cert)) return [];
-  const actions = plan(entries(root), fs.readFileSync(cert, 'utf8'), stamp);
+  const actions = plan(entries(root), cert, fs.readFileSync(cert, 'utf8'), stamp);
   const remove = actions.filter(action => action.status === 'remove');
   if (remove.length > 0) {
     log(`dotfiles: ${cert} trusts ${remove.map(action => action.entry.name).join(', ')} again, likely after a macOS update.`);
