@@ -17,6 +17,9 @@ Each configuration area keeps its own files and restore steps.
   `~/.ssh/config`.
 - [Zsh](zsh/README.md). `~/.zshenv`, `~/.zprofile`, and `~/.zshrc`, with Oh My
   Zsh pinned to a commit.
+- [Distrusted CA roots](ca/README.md). Compromised roots to remove from
+  `/etc/ssl/cert.pem`, with a shell startup check that warns when a macOS update
+  puts one back.
 
 ## Skills
 
@@ -150,3 +153,16 @@ pnpm run zsh install --apply
 
 This links `~/.zshenv`, `~/.zprofile`, and `~/.zshrc` into this checkout, backing
 up the existing files first. Shell history stays local.
+
+## Removing distrusted CA roots
+
+After `pnpm install --frozen-lockfile`, follow the [CA roots guide](ca/README.md):
+
+```sh
+pnpm run ca install
+pnpm run ca install --apply
+```
+
+This removes the listed roots from `/etc/ssl/cert.pem` with `sudo`, after
+backing up the file. Restore zsh too, so new shells warn when a macOS update
+restores a root.

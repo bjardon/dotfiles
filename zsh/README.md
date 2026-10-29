@@ -16,6 +16,9 @@ The files source a few tools that may not be installed yet, such as Homebrew,
 Oh My Zsh, and Vite+. Each of those lines checks that the file exists first, so a
 fresh Mac gets a working shell before everything is installed.
 
+`zshrc` also runs the [distrusted CA roots](../ca/README.md) check. It costs one
+`zstat` per shell and only runs Node when `/etc/ssl/cert.pem` has changed.
+
 ## Oh My Zsh
 
 `zshrc` loads [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) with the

@@ -42,3 +42,23 @@ fi
 
 # Rust (Homebrew rustup is keg-only)
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+
+# Distrusted CA roots (ca/README.md)
+# macOS updates can put a distrusted root back into /etc/ssl/cert.pem. When the
+# file's inode, mtime, or size differs from the last check, ask the ca script.
+# Otherwise this costs one zstat. scripts/ca.ts writes the stamp's first line.
+() {
+  local cert=/etc/ssl/cert.pem stamp="$HOME/.local/state/dotfiles/ca/last-check"
+  [[ -r $cert ]] && zmodload -F zsh/stat b:zstat 2>/dev/null || return 0
+  local -A st
+  local -a seen
+  zstat -H st -- $cert 2>/dev/null || return 0
+  [[ -r $stamp ]] && seen=("${(@f)$(<$stamp)}")
+  [[ ${seen[1]-} == "$st[inode] $st[mtime] $st[size]" ]] && return 0
+  local repo=${${(%):-%x}:A:h:h}
+  if [[ -x $repo/node_modules/.bin/tsx ]]; then
+    $repo/node_modules/.bin/tsx $repo/scripts/ca.ts status
+  else
+    print -r -- "dotfiles: $cert changed. Run \`pnpm install\`, then \`pnpm run ca install\` in $repo."
+  fi
+}
