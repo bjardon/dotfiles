@@ -20,6 +20,9 @@ Each configuration area keeps its own files and restore steps.
 - [Distrusted CA roots](ca/README.md). Compromised roots to remove from
   `/etc/ssl/cert.pem`, with a shell startup check that warns when a macOS update
   puts one back.
+- [Git](git/README.md). `~/.gitconfig`, with a preview and backup installer.
+- [Tools](tools/README.md). A `Brewfile`, an app list for a fresh Mac, and pnpm
+  global packages, with a command that reports what's drifted.
 
 ## Skills
 
@@ -166,3 +169,27 @@ pnpm run ca install --apply
 This removes the listed roots from `/etc/ssl/cert.pem` with `sudo`, after
 backing up the file. Restore zsh too, so new shells warn when a macOS update
 restores a root.
+
+## Restoring Git config
+
+After `pnpm install --frozen-lockfile`, follow the [Git guide](git/README.md):
+
+```sh
+pnpm run git install
+pnpm run git install --apply
+```
+
+This links `~/.gitconfig` into this checkout, backing up the existing file first.
+
+## Restoring tools
+
+After installing Homebrew, follow the [tools guide](tools/README.md):
+
+```sh
+brew bundle --file tools/Brewfile
+brew bundle --file tools/Brewfile.apps
+xargs -n 1 pnpm add -g < tools/pnpm-globals
+pnpm run tools status
+```
+
+Some apps have no cask, so the guide lists the ones to get by hand.

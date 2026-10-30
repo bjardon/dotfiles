@@ -1,0 +1,7 @@
+[user]
+	email = 5511010+bjardon@users.noreply.github.com
+	name = Bruno Jardon
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
