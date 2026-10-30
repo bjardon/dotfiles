@@ -1,0 +1,54 @@
+# Apps for a fresh Mac. Most of these were installed by hand here and update
+# themselves, so Homebrew doesn't manage them and `tools status` skips this file.
+# Running it on a Mac that already has them fails on the existing apps.
+
+# Reaching the devbox and work networks
+cask "tailscale-app"
+cask "twingate"
+cask "adguard"
+
+# Keys and passwords
+cask "1password"
+mas "1Password for Safari", id: 1569813296
+
+# Browsers
+cask "google-chrome"
+cask "helium-browser"
+
+# Editors and development
+cask "cursor"
+cask "docker-desktop"
+cask "t3-code"
+cask "visual-studio-code"
+
+# AI
+cask "chatgpt"
+cask "claude"
+cask "grok-bot"
+
+# Work and communication
+cask "hubstaff"
+cask "linear-linear"
+cask "notion"
+cask "slack"
+mas "WhatsApp", id: 310633997
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft Word", id: 462054704
+
+# Mac utilities
+cask "aldente"
+cask "appcleaner"
+cask "dockdoor"
+cask "hyperkey"
+cask "logi-options+"
+cask "raycast"
+cask "shottr"
+cask "stats"
+mas "Amphetamine", id: 937984704
+mas "Velja", id: 1607635845
+
+# Creative, media, and games
+cask "affinity"
+cask "curseforge"
+cask "minecraft"
+cask "spotify"

@@ -8,13 +8,15 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "check": "pnpm run typecheck && tsx scripts/skills.ts check && tsx scripts/agents.ts check && tsx scripts/ssh.ts check && tsx scripts/zsh.ts check && tsx scripts/ca.ts check",
+    "check": "pnpm run typecheck && tsx scripts/skills.ts check && tsx scripts/agents.ts check && tsx scripts/ssh.ts check && tsx scripts/zsh.ts check && tsx scripts/ca.ts check && tsx scripts/git.ts check && tsx scripts/tools.ts check",
     "skills": "tsx scripts/skills.ts",
     "test": "pnpm run typecheck && tsx --test tests/*.test.ts",
     "agents": "tsx scripts/agents.ts",
     "ssh": "tsx scripts/ssh.ts",
     "zsh": "tsx scripts/zsh.ts",
-    "ca": "tsx scripts/ca.ts"
+    "ca": "tsx scripts/ca.ts",
+    "git": "tsx scripts/git.ts",
+    "tools": "tsx scripts/tools.ts"
   },
   "devDependencies": {
     "@types/node": "22.20.2",

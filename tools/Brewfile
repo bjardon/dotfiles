@@ -1,0 +1,40 @@
+# CLI tools and the casks Homebrew manages on this Mac. `pnpm run tools status`
+# compares this file with what's installed, so keep it true for the current Mac.
+
+tap "schpet/tap"
+tap "steipete/tap"
+
+# Source control and shell
+brew "gh"
+brew "git"
+brew "gnupg"
+brew "ripgrep"
+brew "tree"
+brew "yq"
+
+# Kubernetes
+brew "helm"
+brew "k9s"
+brew "kind"
+brew "kubectx"
+brew "stern"
+
+# Cloud and deploy
+brew "awscli"
+brew "doppler"
+brew "railway"
+cask "1password-cli"
+cask "gcloud-cli"
+
+# Development
+brew "go-task"
+brew "rustup"
+brew "schpet/tap/linear", trusted: true
+cask "codex"
+
+# Other tools
+brew "steipete/tap/peekaboo", trusted: true
+brew "summarize"
+brew "zbar"
+
+cask "warp"
