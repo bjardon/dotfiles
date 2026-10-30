@@ -10,7 +10,7 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 fi
 
 # pnpm is configured in .zshenv so non-login agent/tool shells can find node,
-# pnpm, and globally installed commands like supabase.
+# pnpm, and globally installed commands like vercel.
 
-# User-level CLIs: Claude Code, Codex, Cursor, Macroscope.
+# User-level CLIs: Claude Code, Codex, agy, Macroscope.
 export PATH="$HOME/.local/bin:$PATH"

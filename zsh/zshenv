@@ -3,7 +3,7 @@
 # it too.
 #
 # pnpm must be available here, not only in .zprofile or .zshrc, because commands
-# like `zsh -c "supabase --version"` do not load login or interactive startup
+# like `zsh -c "vercel --version"` do not load login or interactive startup
 # files. PNPM_HOME is pnpm's configured global bin directory, and
 # PNPM_HOME/bin contains executables installed with `pnpm add -g`.
 export PNPM_HOME="$HOME/Library/pnpm"
@@ -14,13 +14,6 @@ esac
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-
-# Added by sonarqube-cli installer
-SONARQUBE_CLI_HOME="$HOME/.local/share/sonarqube-cli/bin"
-case ":$PATH:" in
-  *":$SONARQUBE_CLI_HOME:"*) ;;
-  *) export PATH="$SONARQUBE_CLI_HOME:$PATH" ;;
 esac
 
 # Vite+ bin (https://viteplus.dev)
