@@ -26,20 +26,18 @@ Each configuration area keeps its own files and restore steps.
 
 ## Skills
 
-Twenty-six skills are checked into Git. The original seven match the versions
-installed on this Mac; the seventeen SynoraStudio skills and two personal skills
-are pinned to their upstream commits.
+Nine skills are checked into Git. The original seven match the versions
+installed on this Mac; the two personal skills are pinned to their upstream
+commits.
 
 | Source | Selected skills |
 | --- | --- |
 | [pstack](https://github.com/cursor/plugins/tree/main/pstack) | blast-radius, bro, how, unslop, why |
 | [Matt Pocock](https://github.com/mattpocock/skills) | codebase-design, writing-for-agents |
 | [Bruno Jardon](https://github.com/bjardon/skills) | discuss, experiment |
-| [SynoraStudio](https://github.com/synorastudio/eng-playbook) | adopt-project, babysit, build, design-interface, grill, handoff, implement, init-agent-os, intake, maintain-language, maintain-living-docs, map-decisions, prototype, reconcile-tracker, review, write-adr, write-issues |
 
 [The manifest](skills/manifest.json) records exact commits, file checksums, licenses,
-and destination folders. SynoraStudio skills use the upstream
-[MIT license](skills/licenses/eng-playbook.txt). The personal repository declares
+and destination folders. The personal repository declares
 no upstream license; its entries use `NOASSERTION` with a provenance note for
 [bjardon/skills](skills/licenses/bjardon-skills.txt).
 [Skill policy](skills/README.md) describes what belongs here. [CLI-managed

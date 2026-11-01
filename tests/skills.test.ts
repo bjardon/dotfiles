@@ -34,7 +34,7 @@ test('clean restore, supporting files, and repeated apply', t => {
         assert.deepEqual(fs.readFileSync(path.join(home, target, skill.name, file)), fs.readFileSync(path.join(root, 'skills/vendor', skill.name, file)));
       }
     }
-    assert.ok(fs.existsSync(path.join(home, target, 'grill/../write-adr/ADR-FORMAT.md')));
+    assert.ok(fs.existsSync(path.join(home, target, 'how/../why/references/epistemics.md')));
   }
   assert.ok(run().every(a => a.status === 'ok'));
   assert.equal(fs.existsSync(path.join(home, '.local')), false);
