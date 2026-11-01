@@ -13,8 +13,8 @@ Each configuration area keeps its own files and restore steps.
 - [Skills](#skills). Vendored agent skills, symlinked into place by an installer.
 - [Global agent instructions](agents/README.md). Personal Codex `AGENTS.md` and
   Claude Code `CLAUDE.md` files, with a preview and backup installer.
-- [SSH hosts](ssh/README.md). The `devbox` and `oxpbox` aliases, included from
-  `~/.ssh/config`.
+- [SSH hosts](ssh/README.md). The `devbox`, `oxpbox`, and `synobox` aliases, included
+  from `~/.ssh/config`.
 - [Zsh](zsh/README.md). `~/.zshenv`, `~/.zprofile`, and `~/.zshrc`, with Oh My
   Zsh pinned to a commit.
 - [Distrusted CA roots](ca/README.md). Compromised roots to remove from
