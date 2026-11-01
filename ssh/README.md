@@ -8,9 +8,10 @@ This area owns the client-side SSH aliases for the devbox, which
 | --- | --- |
 | `ssh/devbox.conf` | `~/.ssh/config.d/devbox.conf`, included from `~/.ssh/config` |
 
-`devbox` logs in as `bjardon` and `oxpbox` logs in as `oxperience`, on the same
-machine. `oxpbox` used to be `devbox-oxp`. I renamed it because the two names
-started the same way and I kept typing the wrong one.
+`devbox` logs in as `bjardon`, `oxpbox` logs in as `oxperience`, and `synobox`
+logs in as `synora`, all on the same machine. `oxpbox` used to be `devbox-oxp`. I
+renamed it because the two names started the same way and I kept typing the wrong
+one.
 
 `HostName` is the Tailscale MagicDNS short name `devbox`. This repository is
 public, and the short name keeps the tailnet ID out of it. Resolving it needs
@@ -45,8 +46,8 @@ the block above it. Repeat runs leave a correct link and config alone. The
 installer refuses to run if `~/.ssh` or `~/.ssh/config` is a symlink.
 
 SSH uses the first value it finds for each option, so the included hosts win over
-any `Host devbox` or `Host oxpbox` block still in `~/.ssh/config`. The installer
-warns about those duplicates. Delete them by hand after applying.
+any `Host devbox`, `Host oxpbox`, or `Host synobox` block still in `~/.ssh/config`.
+The installer warns about those duplicates. Delete them by hand after applying.
 
 Keep this checkout in a permanent location, because the installed link points
 into it.
