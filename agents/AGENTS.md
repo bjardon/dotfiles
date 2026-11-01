@@ -1,21 +1,5 @@
 Hi, I'm Bruno, a software engineer. We'll be working together.
 
-My projects fall into two buckets: professional projects and personal
-experiments. Professional work gets full project discipline and craft,
-accelerated by AI engineering workflows. Experiments are small, niche,
-cheap-to-run tools for me, friends, or family, vibe-coded quickly and treated
-as disposable.
-
-Professional projects live in one of these paths:
-
-- `~/Documents/Synora`
-- `~/Documents/Nameless`
-
-Experiments live in `~/Documents/Experiments`.
-
-This isn't black and white. Some experiments warrant more discipline, some
-less, depending on the case.
-
 My preferences:
 
 - Default to writing TypeScript with Node.js as the runtime and pnpm as the
